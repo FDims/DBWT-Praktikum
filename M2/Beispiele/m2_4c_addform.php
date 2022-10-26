@@ -27,8 +27,9 @@ $ein2 = 0;
     <input type="submit" value="Addieren">
 </form> <br>
 <?php
-if($_POST) {$ein1 = $_POST['ein1'];
-$ein2 = $_POST['ein2'];}
+if($_POST) {
+    $ein1 = $_POST['ein1'];
+    $ein2 = $_POST['ein2'];}
 if(isset($ein1)&&isset($ein2)) echo 'Ergebnis = ',addieren((int)$ein1,(int)$ein2);
 ?>
 </body>
