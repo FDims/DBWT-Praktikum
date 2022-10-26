@@ -9,7 +9,7 @@ $allergens = [
     11 => 'Gluten',
     12 => 'Krebstiere',
     13 => 'Eier',
-    14 => 'Fisch'
+    14 => 'Fisch',
     17 => 'Milch'
 ];
 
