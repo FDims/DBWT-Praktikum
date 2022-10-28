@@ -1,4 +1,9 @@
 <?php
+/**
+ * Praktikum DBWT. Autoren:
+ * Fachrial Dimas Putra, Perdana, 3503937
+ * Jericho, Jordan, 3536333
+ */
 include "m2_4a_standardparameter.php";
 
 $a = 123;
