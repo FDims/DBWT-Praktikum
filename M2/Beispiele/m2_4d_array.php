@@ -19,8 +19,7 @@ foreach ($famousMeals[1]['winner'] as $key) array_push($jahr,$key);
 foreach ($famousMeals[2]['winner'] as $key) array_push($jahr,$key);
 foreach ($famousMeals[3]['winner'] as $key) array_push($jahr,$key);
 array_push($jahr,$famousMeals[4]['winner']);
-sort($jahr);
-var_dump($jahr);
+
 ?>
 
 <!DOCTYPE html>
