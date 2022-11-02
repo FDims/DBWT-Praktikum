@@ -7,10 +7,10 @@
 <body>
 <fieldset>
   <legend>Anmeldung</legend>
-  <form action="/formdata.html">
+  <form method="post" action="/beispiele/Newsletter_Anmelder.php">
   <label>Anrede :</label><br>
-  <input type="radio" name="anrede" id="anrede1">Frau<br>
-  <input type="radio" name="anrede" id="anrede2">Herr<br>
+  <input type="radio" name="anrede" id="anrede1" value="Frau">Frau<br>
+  <input type="radio" name="anrede" id="anrede2" value="Herr">Herr<br>
   <label for="Vorname">Vorname*</label><br>
   <input type="text" name="Vorname" placeholder="Bitte geben SIe Ihren Vornamen ein" size="30" id="Vorname" required><br>
   <label for="Nachname">Nachname*</label><br>
@@ -18,9 +18,9 @@
   <label for="email">E-Mail*</label><br>
   <input type="email" name="email" id="email" placeholder="Bitte geben SIe Ihre E-Mail ein" size="30" required><br>
   <label for="interval">Benachrichtigungsinterval</label><br>
-  <select name="interval" id="interval"><option>Täglich</option>
-    <option>Wochenlich</option>
-    <option>Monatlich</option>
+  <select name="interval" id="interval"><option value="Taeglich">Täglich</option>
+    <option value="Wochenlich">Wochenlich</option>
+    <option value="Monatlich">Monatlich</option>
   </select>
     <br>
   <input type="checkbox" required>Datenschutzhinweise gelesen
