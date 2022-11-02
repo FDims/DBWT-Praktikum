@@ -74,6 +74,16 @@ $en = [
 
 $showRatings = [];
 $searchTerm='';
+$TopStars=0;
+$FloppStars=99;
+foreach($ratings as $rating){
+    if($rating['stars']>$TopStars){
+        $TopStars=$rating['stars'];
+    }
+    if($rating['stars']<$FloppStars){
+        $FloppStars=$rating['stars'];
+    }
+}
 if (!empty($_GET[GET_PARAM_SEARCH_TEXT])) {
     $searchTerm = $_GET[GET_PARAM_SEARCH_TEXT];
     foreach ($ratings as $rating) {
@@ -88,7 +98,19 @@ if (!empty($_GET[GET_PARAM_SEARCH_TEXT])) {
             $showRatings[] = $rating;
         }
     }
-} else {
+} else if(!empty($_GET['TOP'])){
+    foreach($ratings as $rating){
+        if($rating['stars']==$TopStars){
+            $showRatings[] = $rating;
+        }
+    }
+}else if(!empty($_GET['FLOPP'])){
+    foreach($ratings as $rating) {
+        if ($rating['stars'] == $FloppStars) {
+            $showRatings[] = $rating;
+        }
+    }
+}else{
     $showRatings = $ratings;
 }
 
@@ -164,6 +186,10 @@ if(!empty($_POST['de'])){
             <label for="search_text">Filter:</label>
             <input id="search_text" type="text" name="search_text" value="<?php echo $filter?>">
             <input type="submit" value="<?php echo $sprache['suchen']?>">
+        </form>
+        <form method="get">
+            <input type="submit" value="TOP" name="TOP">
+            <input type="submit" value="FLOPP" name="FLOPP">
         </form>
         <table class="rating">
             <thead>
