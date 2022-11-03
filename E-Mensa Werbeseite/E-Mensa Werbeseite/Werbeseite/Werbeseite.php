@@ -1,4 +1,10 @@
-<?php echo "Test";
+<?php
+/**
+ * Praktikum DBWT. Autoren:
+ * Fachrial Dimas Putra, Perdana, 3503937
+ * Jericho, Jordan, 3536333
+ */
+echo "Test";
 $Gerichte = [
     1 => ['name' => 'Rindfleisch mit Bambus, Kaiserschoten und rotem Paprika, dazu Mie Nudeln',
         'pint' => '3,50','pext' => '6,20','bild' => '<img class ="imag" src=./img/1-gerichte.jpg alt="Rindfleisch Bambus Mie"> '],

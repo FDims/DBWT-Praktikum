@@ -1,4 +1,9 @@
 <?php
+/**
+ * Praktikum DBWT. Autoren:
+ * Fachrial Dimas Putra, Perdana, 3503937
+ * Jericho, Jordan, 3536333
+ */
 $file = fopen('en.txt','r'); $gefunden = false;
 $fehler = false;
 $searched=NULL;
