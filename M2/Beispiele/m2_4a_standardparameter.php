@@ -4,5 +4,6 @@
  * Fachrial Dimas Putra, Perdana, 3503937
  * Jericho, Jordan, 3536333
  */
-echo "Erstes PHP Skript <br>";
-phpinfo();
+function addieren($a, $b = 0){
+    echo $a+$b;
+}
