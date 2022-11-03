@@ -7,6 +7,7 @@
 const GET_PARAM_MIN_STARS = 'search_min_stars';
 const GET_PARAM_SEARCH_TEXT = 'search_text';
 const GET_PARAM_SHOW_DESCRIPTION = 'show_description';
+const GET_PARAM_SPRACHE = 'sprache';
 /**
  * List of all allergens.
  */
@@ -122,12 +123,8 @@ function calcMeanStars(array $ratings) : float {
     $sum /=count($ratings);
     return $sum;
 }
-
-
-$style='hidden';
-$Show =0;
-if(isset($_GET['show_description'])){
-    $Show=$_GET['show_description'];
+if(isset($_GET[GET_PARAM_SHOW_DESCRIPTION])){
+    $Show=$_GET[GET_PARAM_SHOW_DESCRIPTION];
     if($Show==1){
         $Show=0;
         $style='show';
@@ -135,16 +132,21 @@ if(isset($_GET['show_description'])){
         $Show=1;
         $style='hidden';
     }
+}else{
+    $Show=0;
+    $style='hidden';
 }
 $filter='';
 if($searchTerm!='') {
     $filter = $searchTerm;
 }
-
-if(!empty($_POST['de'])){
-    $sprache = $de;
-}else if(!empty($_POST['en'])){
-    $sprache=$en;
+if(!empty($_GET[GET_PARAM_SPRACHE])) {
+    $s=$_GET[GET_PARAM_SPRACHE];
+    if($s=='en'){
+        $sprache =$en;
+    }else if($s=='de'){
+        $sprache =$de;
+    }
 }else{
     $sprache=$de;
 }
@@ -165,7 +167,7 @@ if(!empty($_POST['de'])){
     </head>
     <body>
         <h1><?php echo $sprache['Gericht']  .$sprache[$meal['name']]; ?></h1>
-        <a href="<?php echo '?show_description='.$Show;?>"><?php if($sprache == $de) {
+        <a href="<?php echo '?show_description='.$Show?>"><?php if($sprache == $de) {
                 echo "beschreibung ein/ausblenden";
             }else if($sprache == $en){
                 echo "show/hide description";
@@ -211,9 +213,17 @@ if(!empty($_POST['de'])){
             </tbody>
         </table>
     <p>Language: </p>
-        <form method="post">
-            <input type="submit" name="de" value="Deutsch">
-            <input type="submit" name="en" value="Englisch">
-        </form>
+        <a href="<?php
+            if($sprache == $de){
+                echo '?sprache='.'en';
+            }else if ($sprache == $en){
+                echo'?sprache='.'de';
+            }
+            ?>"><?php if($sprache ==$de){
+                echo 'English';
+            }else if($sprache==$en){
+                echo 'Deutsch';
+            }?></a>
+
     </body>
 </html>
