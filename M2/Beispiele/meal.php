@@ -1,13 +1,15 @@
 <?php
 /**
  * Praktikum DBWT. Autoren:
- * Vorname1, Nachname1, Matrikelnummer1
- * Vorname2, Nachname2, Matrikelnummer2
+ * Fachrial Dimas Putra, Perdana, 3503937
+ * Jercio, Jordan, 3536333
+
  */
 const GET_PARAM_MIN_STARS = 'search_min_stars';
 const GET_PARAM_SEARCH_TEXT = 'search_text';
 const GET_PARAM_SHOW_DESCRIPTION = 'show_description';
-const GET_PARAM_SPRACHE = 'sprache';
+const GET_PARAM_SPRACHE ='sprache';
+
 /**
  * List of all allergens.
  */
@@ -74,7 +76,6 @@ $en = [
 ];
 
 $showRatings = [];
-$searchTerm='';
 $TopStars=0;
 $FloppStars=99;
 foreach($ratings as $rating){
@@ -85,6 +86,8 @@ foreach($ratings as $rating){
         $FloppStars=$rating['stars'];
     }
 }
+
+
 if (!empty($_GET[GET_PARAM_SEARCH_TEXT])) {
     $searchTerm = $_GET[GET_PARAM_SEARCH_TEXT];
     foreach ($ratings as $rating) {
@@ -123,6 +126,10 @@ function calcMeanStars(array $ratings) : float {
     $sum /=count($ratings);
     return $sum;
 }
+
+
+$style='hidden';
+$Show =0;
 if(isset($_GET[GET_PARAM_SHOW_DESCRIPTION])){
     $Show=$_GET[GET_PARAM_SHOW_DESCRIPTION];
     if($Show==1){
@@ -132,23 +139,15 @@ if(isset($_GET[GET_PARAM_SHOW_DESCRIPTION])){
         $Show=1;
         $style='hidden';
     }
-}else{
-    $Show=0;
-    $style='hidden';
 }
-$filter='';
-if($searchTerm!='') {
-    $filter = $searchTerm;
-}
+$sprache= $de;
 if(!empty($_GET[GET_PARAM_SPRACHE])) {
-    $s=$_GET[GET_PARAM_SPRACHE];
-    if($s=='en'){
-        $sprache =$en;
-    }else if($s=='de'){
-        $sprache =$de;
+    $spr=$_GET[GET_PARAM_SPRACHE];
+    if($spr=='en'){
+        $sprache=$en;
+    }else if($spr=='de'){
+        $sprache=$de;
     }
-}else{
-    $sprache=$de;
 }
 ?>
 <!DOCTYPE html>
@@ -167,7 +166,7 @@ if(!empty($_GET[GET_PARAM_SPRACHE])) {
     </head>
     <body>
         <h1><?php echo $sprache['Gericht']  .$sprache[$meal['name']]; ?></h1>
-        <a href="<?php echo '?show_description='.$Show?>"><?php if($sprache == $de) {
+        <a href="<?php echo '?show_description='.$Show;?>"><?php if($sprache == $de) {
                 echo "beschreibung ein/ausblenden";
             }else if($sprache == $en){
                 echo "show/hide description";
@@ -186,7 +185,7 @@ if(!empty($_GET[GET_PARAM_SPRACHE])) {
         <h1><?php echo $sprache['Bewertungen'] ?>(<?php echo $sprache['Ingesamt'] .calcMeanStars($ratings); ?>)</h1>
         <form method="get">
             <label for="search_text">Filter:</label>
-            <input id="search_text" type="text" name="search_text" value="<?php echo $filter?>">
+            <input id="search_text" type="text" name="search_text" value="<?php echo isset($searchTerm)?$searchTerm:'' ?>">
             <input type="submit" value="<?php echo $sprache['suchen']?>">
         </form>
         <form method="get">
@@ -214,16 +213,17 @@ if(!empty($_GET[GET_PARAM_SPRACHE])) {
         </table>
     <p>Language: </p>
         <a href="<?php
-            if($sprache == $de){
+            if($sprache==$de){
                 echo '?sprache='.'en';
-            }else if ($sprache == $en){
+            }else if($sprache==$en){
                 echo'?sprache='.'de';
             }
-            ?>"><?php if($sprache ==$de){
+            ?>"> <?php
+            if($sprache==$de){
                 echo 'English';
             }else if($sprache==$en){
-                echo 'Deutsch';
-            }?></a>
-
+                echo'Deutsch';
+            }
+            ?></a>
     </body>
 </html>
