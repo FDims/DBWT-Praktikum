@@ -1,13 +1,13 @@
 <?php echo "Test";
 $Gerichte = [
     1 => ['name' => 'Rindfleisch mit Bambus, Kaiserschoten und rotem Paprika, dazu Mie Nudeln',
-        'pint' => '3,50','pext' => '6,20'],
+        'pint' => '3,50','pext' => '6,20','bild' => '<img class ="imag" src=./img/1-gerichte.jpg alt="Rindfleisch Bambus Mie"> '],
     2 => ['name' => 'Spinatrisotto mit kleinen Samosateigecken und gemischter salat',
-        'pint' => '2,90','pext' => '5,30'],
+        'pint' => '2,90','pext' => '5,30','bild' => '<img class ="imag" src="./img/2-gerichte.jpg" alt="Spinatrisotto">'],
     3 => ['name' => 'Lachsteriyaki, Frühlingszwiebelgemüse, dazu Mienudeln',
-        'pint' => '3,50','pext' => '6,20'],
+        'pint' => '3,50','pext' => '6,20','bild' => '<img class ="imag" src="./img/3-gerichte.jpeg" alt="Lachsteriyaki">'],
     4 => ['name' => 'Grüner Thai Curry mit Garnelen mit Korianderreis',
-        'pint' => '3,90','pext' => '6,30']
+        'pint' => '3,90','pext' => '6,30','bild' => '<img class ="imag" src="./img/4-gerichte.png" alt="Grüner Thai Curry">']
    ];
 
 ?>
@@ -17,7 +17,7 @@ $Gerichte = [
 <head>
     <meta charset="UTF-8">
     <title>Ihre E-Mensa</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="stylesheetnew.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap" rel="stylesheet">
@@ -78,7 +78,12 @@ E-Mensa
             <td class="menulist"><?php echo $Gerichte[4]['pext']?></td>
         </tr>
     </table>
-
+    <br>
+    <?php
+    for($i = 1;$i<5;$i++){
+        echo $Gerichte[$i]['bild'].'<br>'.$Gerichte[$i]['name'].'<br>';
+    }
+    ?>
 
     <h2 id="zzahlen">E-Mensa in Zahlen</h2>
     <div class="Zahl">
