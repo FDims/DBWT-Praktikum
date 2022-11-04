@@ -1,9 +1,10 @@
 <?php
 /**
-* Praktikum DBWT. Autoren:
-* Fachrial Dimas Putra, Perdana, 3503937
-* Jericho, Jordan, 3536333
-*/ ?>
+ * Praktikum DBWT. Autoren:
+ * Fachrial Dimas Putra, Perdana, 3503937
+ * Jercio, Jordan, 3536333
+
+ */?>
 <!DOCTYPE html>
 <html lang="de">
 <head>

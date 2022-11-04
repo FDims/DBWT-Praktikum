@@ -166,7 +166,14 @@ if(!empty($_GET[GET_PARAM_SPRACHE])) {
     </head>
     <body>
         <h1><?php echo $sprache['Gericht']  .$sprache[$meal['name']]; ?></h1>
-        <a href="<?php echo '?show_description='.$Show;?>"><?php if($sprache == $de) {
+        <a href="<?php echo '?show_description='.$Show;
+        if($sprache==$de){
+            echo '&sprache='.'de';
+        }else if($sprache==$en){
+            echo'&sprache='.'en';
+        }
+        ?>">
+            <?php if($sprache == $de) {
                 echo "beschreibung ein/ausblenden";
             }else if($sprache == $en){
                 echo "show/hide description";
@@ -218,6 +225,12 @@ if(!empty($_GET[GET_PARAM_SPRACHE])) {
             }else if($sprache==$en){
                 echo'?sprache='.'de';
             }
+            if($Show==0){
+                echo '&show_description=1';
+            }else{
+                echo '&show_description=0';
+            }
+
             ?>"> <?php
             if($sprache==$de){
                 echo 'English';
