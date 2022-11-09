@@ -114,6 +114,7 @@ if (!empty($_GET[GET_PARAM_SEARCH_TEXT])) {
             $showRatings[] = $rating;
         }
     }
+
 }else{
     $showRatings = $ratings;
 }
@@ -220,17 +221,24 @@ if(!empty($_GET[GET_PARAM_SPRACHE])) {
         </table>
     <p>Language: </p>
         <a href="<?php
-            if($sprache==$de){
-                echo '?sprache='.'en';
-            }else if($sprache==$en){
-                echo'?sprache='.'de';
-            }
-            if($Show==0){
-                echo '&show_description=1';
+        if(isset($_GET[GET_PARAM_SHOW_DESCRIPTION])) {
+            if ($_GET[GET_PARAM_SHOW_DESCRIPTION]==1) {
+                echo '?show_description=1';
             }else{
-                echo '&show_description=0';
+                echo '?show_description=0';
             }
-
+            if($sprache==$de){
+                echo '&sprache='.'en';
+            }else if($sprache==$en){
+                echo'&sprache='.'de';
+            }
+        }else {
+            if ($sprache == $de) {
+                echo '?sprache=' . 'en';
+            } else if ($sprache == $en) {
+                echo '?sprache=' . 'de';
+            }
+        }
             ?>"> <?php
             if($sprache==$de){
                 echo 'English';
