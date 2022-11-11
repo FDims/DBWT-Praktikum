@@ -5,5 +5,5 @@
  * Jericho, Jordan, 3536333
  */
 function addieren($a, $b = 0){
-    echo $a+$b;
+    echo "$a + $b = ",$a+$b,"\n";
 }

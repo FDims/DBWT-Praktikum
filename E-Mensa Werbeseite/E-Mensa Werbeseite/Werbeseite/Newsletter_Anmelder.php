@@ -16,15 +16,18 @@
 $anrede = '';
 $Vorname = '';
 $Nachname = '';
+$interval='';
 $Email = '';
 $fehler=NULL;
 $fehler1=NULL;
 $fehler2=NULL;
+$action="Newsletter_Anmelder.php";
 
 if(isset($_POST['submitted'])) {
     $anrede = $_POST['anrede']??NULL;
     $Vorname = trim($_POST['Vorname']??NULL);
     $Nachname = trim($_POST['Nachname']??NULL);
+    $interval=$_POST['interval'];
     $Email = $_POST['email'] ??NULL;
     $fehler=false;
     $fehler1=false;
@@ -40,8 +43,20 @@ if(isset($_POST['submitted'])) {
      } else if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
     $fehler2= 'E-Mail-Adresse ist nicht korrekt formatiert';
      }
-    if (!$fehler||!$fehler1||!$fehler2) {
-        //....
+    if (!$fehler&&!$fehler1&&!$fehler2) {
+        $action="./Werbeseite.php";
+        $datei = [
+                'anrede'=>$anrede,
+            'Vorname'=>$Vorname,
+            'Nachname'=>$Nachname,
+            'E-Mail'=>$Email,
+            'interval'=>$interval
+        ];
+        $file = fopen("Newsletter.txt",'w');
+        foreach ($datei as $key=>$dateien){
+            fwrite($file,$dateien.' ');
+        }
+        fclose($file);
     }
 }
 ?>
@@ -69,13 +84,13 @@ if(isset($_POST['submitted'])) {
         <input type="radio" name="anrede" id="anrede2" value="Herr" <?php echo $anrede=='Herr'?'checked':''?>>Herr<br>
 
         <label for="Vorname">Vorname*</label><br>
-        <input type="text" name="Vorname" placeholder="Bitte geben SIe Ihren Vornamen ein" size="30" id="Vorname" value="<?php echo $Vorname ?>"><br>
+        <input type="text" name="Vorname" placeholder="Bitte geben SIe Ihren Vornamen ein" size="30" id="Vorname" value="<?php echo $Vorname ?>" required><br>
 
         <label for="Nachname">Nachname*</label><br>
-        <input type="text" name="Nachname" placeholder="Bitte geben SIe Ihren Nachname ein" size="30" id="Nachname" value="<?php echo $Nachname ?>"><br>
+        <input type="text" name="Nachname" placeholder="Bitte geben SIe Ihren Nachname ein" size="30" id="Nachname" value="<?php echo $Nachname ?>" required><br>
 
         <label for="email">E-Mail*</label><br>
-        <input type="email" name="email" id="email" placeholder="Bitte geben SIe Ihre E-Mail ein" size="30" value="<?php echo $Email ?>"><br>
+        <input type="email" name="email" id="email" placeholder="Bitte geben SIe Ihre E-Mail ein" size="30" value="<?php echo $Email ?>" required><br>
 
         <label for="interval">Benachrichtigungsinterval</label><br>
         <select name="interval" id="interval">
