@@ -168,10 +168,12 @@ if(!empty($_GET[GET_PARAM_SPRACHE])) {
     <body>
         <h1><?php echo $sprache['Gericht']  .$sprache[$meal['name']]; ?></h1>
         <a href="<?php echo '?show_description='.$Show;
-        if($sprache==$de){
-            echo '&sprache='.'de';
-        }else if($sprache==$en){
-            echo'&sprache='.'en';
+        if(isset($_GET[GET_PARAM_SPRACHE])) {
+            if ($sprache == $de) {
+                echo '&sprache=' . 'de';
+            } else if ($sprache == $en) {
+                echo '&sprache=' . 'en';
+            }
         }
         ?>">
             <?php if($sprache == $de) {
@@ -190,6 +192,9 @@ if(!empty($_GET[GET_PARAM_SPRACHE])) {
             }
             ?>
         </ul>
+        <p>Preis Extern : <?php echo number_format($meal['price_extern'],2,',','.');?></p>
+        <p>Preis Intern : <?php echo number_format($meal['price_intern'],2,',','.');?></p>
+
         <h1><?php echo $sprache['Bewertungen'] ?>(<?php echo $sprache['Ingesamt'] .calcMeanStars($ratings); ?>)</h1>
         <form method="get">
             <label for="search_text">Filter:</label>

@@ -18,8 +18,8 @@ $Vorname = '';
 $Nachname = '';
 $Email = '';
 $fehler=NULL;
-//$fehler1=NULL;
-//$fehler2=NULL;
+$fehler1=NULL;
+$fehler2=NULL;
 
 if(isset($_POST['submitted'])) {
     $anrede = $_POST['anrede']??NULL;
