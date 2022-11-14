@@ -3,6 +3,12 @@ body{
     font-family: 'Gemunu Libre', sans-serif;
     border: solid 1px   ;
 }
+.Fehler{
+    background-color: indianred;
+}
+.success{
+    background-color: lawngreen;
+}
 header{
     border-bottom: solid;
 }
@@ -39,7 +45,7 @@ ul>li{
 main{
     background-color: #FFF6BF;
     margin: 10px auto;
-    max-width: 75%;
+    max-width: 85%;
     padding: 0 5px;
 }
 
@@ -109,6 +115,7 @@ footer{
 .imag{
     width: 500px;
 }
+
 
 
 
