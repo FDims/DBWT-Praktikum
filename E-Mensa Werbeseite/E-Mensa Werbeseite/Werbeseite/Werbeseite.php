@@ -64,6 +64,7 @@ E-Mensa
         </tr>
 
         <tr>
+
             <td class="menulist"><?php echo $Gerichte[1]['name']?></td>
             <td class="menulist"><?php echo $Gerichte[1]['pint']?></td>
             <td class="menulist"><?php echo $Gerichte[1]['pext']?></td>
@@ -109,26 +110,8 @@ E-Mensa
 
 
     <h2 id="kontakt">Interesse geweckt? Wir informieren Sie!</h2>
-    <form action="pause">
-        <div class="form">
-        <label for="Vorname">Ihr Name:</label> <br>
-        <input type="text" name="Vorname" id="Vorname" placeholder="Vorname" required>
-        </div>
-        <div class="form">
-            <label for="email">Ihr Name:</label> <br>
-            <input type="text" name="E-Mail" id="email" required>
-        </div>
-        <div class="form">
-            <label for="sprache">Newsletter bitte im:</label> <br>
-            <select id="sprache">
-                <option>Deutsch</option>
-                <option>English</option>
-            </select>
-        </div>
-        <br>
-        <input type="checkbox" required>Den Datenschutzbestimmungen stimme ich zu
-<button type="submit" name="submit" value="submit" id="submit">Zum Newsletter anmelden</button>
-    </form>
+    <a href="./Newsletter_Anmelder.php">Zum Newesletter Anmelder</a>
+
 
 
     <h2 id="unswichtig"> Das ist uns wichtig</h2>

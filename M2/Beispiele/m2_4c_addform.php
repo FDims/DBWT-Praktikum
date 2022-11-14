@@ -29,13 +29,27 @@ $ein2 = 0;
 
     <label for="ein2">Eingabe 2:</label>
     <input id="ein2" type="int" name="ein2">
-    <input type="submit" value="Addieren">
+    <select id="op" name="op">
+        <option value="add">Addition</option>
+        <option value="mult">Multiplikation</option>
+    </select>
+    <input type="submit" value="Submit">
 </form> <br>
 <?php
-if($_POST) {
+if(isset($_POST)) {
     $ein1 = $_POST['ein1'];
-    $ein2 = $_POST['ein2'];}
-if(isset($ein1)&&isset($ein2)) echo 'Ergebnis = ',addieren((int)$ein1,(int)$ein2);
+    $ein2 = $_POST['ein2'];
+    $typ = $_POST['op'];
+}
+if(isset($ein1)&&isset($ein2)) {
+    if ($typ == 'add') {
+        echo 'Ergebnis => ', addieren((int)$ein1, (int)$ein2);
+    }
+    else{
+        echo 'Ergebnis => ', "$ein1 * $ein2 = " ,$ein1 * $ein2;
+    }
+}
+
 ?>
 </body>
 </html>
