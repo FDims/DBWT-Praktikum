@@ -1,12 +1,10 @@
 <?php
-echo "test";
 $link = mysqli_connect(
     "localhost", // Host der Datenbank
     "root", // Benutzername zur Anmeldung
     "2804", // Passwort zur Anmeldung
     "emensawerbeseite", // Auswahl der Datenbank
     3306);
-echo "test";
 if (!$link) {
     echo "Verbindung fehlgeschlagen: ", mysqli_connect_error();
     exit();

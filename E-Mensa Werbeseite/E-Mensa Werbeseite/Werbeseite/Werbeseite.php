@@ -4,6 +4,16 @@
  * Fachrial Dimas Putra, Perdana, 3503937
  * Jericho, Jordan, 3536333
  */
+$link = mysqli_connect(
+    "localhost", // Host der Datenbank
+    "root", // Benutzername zur Anmeldung
+    "2804", // Passwort zur Anmeldung
+    "emensawerbeseite", // Auswahl der Datenbank
+    3306);
+if (!$link) {
+    echo "Verbindung fehlgeschlagen: ", mysqli_connect_error();
+    exit();
+}
 $Gerichte = [
     1 => ['name' => 'Rindfleisch mit Bambus, Kaiserschoten und rotem Paprika, dazu Mie Nudeln',
         'pint' => '3,50','pext' => '6,20','bild' => '<img class ="imag" src=./img/1-gerichte.jpg alt="Rindfleisch Bambus Mie"> '],
@@ -122,10 +132,52 @@ if(isset($_POST['submitted'])){
             echo '<td class="menulist">'.$gericht['pext'].'</td>';
             echo '</tr>';
         }
+        $sql1= "SELECT id, name, preis_intern , preis_extern FROM gericht ORDER BY name";
+        $result1= mysqli_query($link,$sql1);
+        $sql2= "SELECT gericht_id, code FROM gericht_hat_allergen";
+        $result2=mysqli_query($link,$sql2);
+        for($i=0;$i<5;$i++){
+            $line=null;
+            $row1=mysqli_fetch_assoc($result1);
+            echo '<tr>';
+            echo '<td class="menulist menubild">'.'leider noch Keine Bild'.'</td>';
+            echo '<td class="menulist">'.$row1['name'].'<br>';
+            while($row2=mysqli_fetch_assoc($result2)){
+                if($row1['id']==$row2['gericht_id']){
+                    $line=$line.$row2['code'].', ';
+                }
+            }
+            if($line) {
+                echo '[' . $line . ']';
+            }
+            echo '</td>';
+            echo '<td class="menulist">'.number_format($row1['preis_intern'],2,',','.').'</td>';
+            echo '<td class="menulist">'.number_format($row1['preis_extern'],2,',','.').'</td>';
+        }
         ?>
     </table>
     <br>
+    <?php
+    $sql3="SELECT code, name, typ FROM allergen order by typ";
+    $result3=mysqli_query($link,$sql3);
+    $hilf_bool = true;
+    $typ=null;
+    while($row3=mysqli_fetch_assoc($result3)) {
+        if ($typ == $row3['typ']) {
+            $hilf_bool = false;
+        } else {
+            $hilf_bool = true;
+            echo '<br><br>';
+            $typ = $row3['typ'];
+        }
+        if ($hilf_bool) {
+            echo $row3['typ'] . '=' . '<br>';
+        }
+        echo $row3['code'] . ': ' . $row3['name'] . ',';
 
+    }
+    ?>
+    <br>
     <h2 id="zzahlen">E-Mensa in Zahlen</h2>
     <div class="Zahl">
         <div class="zahlen">
