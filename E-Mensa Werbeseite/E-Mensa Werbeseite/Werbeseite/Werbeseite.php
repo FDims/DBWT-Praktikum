@@ -173,7 +173,7 @@ if(isset($_POST['submitted'])){
         if ($hilf_bool) {
             echo $row3['typ'] . '=' . '<br>';
         }
-        echo $row3['code'] . ': ' . $row3['name'] . ',';
+        echo $row3['code'] . ': ' . $row3['name'] . ', ';
 
     }
     ?>
