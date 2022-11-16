@@ -53,7 +53,7 @@ if(isset($_POST['submitted'])) {
             'E-Mail'=>$Email,
             'Sprache'=>$sprache,
         ];
-        $file = fopen("Newsletter.txt",'w');
+        $file = fopen("Newsletter.txt",'a');
         foreach ($datei as $key=>$dateien){
             fwrite($file,$dateien.' ');
         }
