@@ -4,6 +4,7 @@
  * Fachrial Dimas Putra, Perdana, 3503937
  * Jericho, Jordan, 3536333
  */
+session_status();
 $link = mysqli_connect(
     "localhost", // Host der Datenbank
     "root", // Benutzername zur Anmeldung
@@ -49,7 +50,7 @@ if(isset($_POST['submitted'])) {
     }
     if (!$fehler&&!$fehler1) {
         $datei = [
-            'Name'=>$Name,
+            'Name'=>str_replace(" ","+",$Name),
             'E-Mail'=>$Email,
             'Sprache'=>$sprache,
         ];
@@ -57,8 +58,10 @@ if(isset($_POST['submitted'])) {
         foreach ($datei as $key=>$dateien){
             fwrite($file,$dateien.' ');
         }
+        fwrite($file,"\n");
         fclose($file);
     }
+
 }
 ?>
 <?php ?>
@@ -181,15 +184,40 @@ if(isset($_POST['submitted'])){
     <h2 id="zzahlen">E-Mensa in Zahlen</h2>
     <div class="Zahl">
         <div class="zahlen">
-            <h4>X</h4>
+            <h4><?php
+                $sql4="SELECT counter FROM besucher";
+                $result4=mysqli_query($link,$sql4);
+                $besucher=mysqli_fetch_assoc($result4)['counter'];
+                if(!isset($_SESSION['hasVisited'])){
+                    $_SESSION['hasVisited']="yes";
+                    $besucher++;
+                    $sql4="UPDATE besucher SET counter=".$besucher;
+                    $result4=mysqli_query($link,$sql4);
+                }
+                echo $besucher;?></h4>
             <h4>Besucher</h4>
         </div>
         <div class="zahlen">
-            <h4>Y</h4>
+            <h4><?php
+                    $fp=fopen("Newsletter.txt",'r');
+                    $Anmelder=0;
+                    while(fgets($fp,4096)){
+                        $Anmelder++;
+                    }
+                    echo $Anmelder;
+                ?></h4>
             <h4>Anmeldungen zum Newsletter</h4>
         </div>
         <div class="zahlen">
-            <h4>Z</h4>
+            <h4><?php
+                    $sql1= "SELECT id, name, preis_intern , preis_extern FROM gericht ORDER BY name";
+                    $result1= mysqli_query($link,$sql1);
+                    $AnzahlSpeisen=0;
+                    while(mysqli_fetch_assoc($result1)) {
+                        $AnzahlSpeisen++;
+                        }
+                        echo $AnzahlSpeisen;
+                    ?></h4>
             <h4>Speisen</h4>
         </div>
     </div>
