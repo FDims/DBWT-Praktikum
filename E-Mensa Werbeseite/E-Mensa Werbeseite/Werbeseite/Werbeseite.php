@@ -8,7 +8,7 @@ session_status();
 $link = mysqli_connect(
     "localhost", // Host der Datenbank
     "root", // Benutzername zur Anmeldung
-    "root", // Passwort zur Anmeldung
+    "2804", // Passwort zur Anmeldung
     "emensawerbeseite", // Auswahl der Datenbank
     3306);
 if (!$link) {
@@ -142,10 +142,10 @@ if(isset($_POST['submitted'])){
             echo '<tr>';
             echo '<td class="menulist menubild">'.'leider noch Keine Bild'.'</td>';
             echo '<td class="menulist">'.$row1['name'].'<br>';
+            $sql2= "SELECT gericht_id, code FROM gericht_hat_allergen WHERE gericht_id=".$row1['id'];
+            $result2=mysqli_query($link,$sql2);
             while($row2=mysqli_fetch_assoc($result2)){
-                if($row1['id']==$row2['gericht_id']){
                     $line=$line.$row2['code'].', ';
-                }
             }
             if($line) {
                 echo '[' . $line . ']';
@@ -196,25 +196,21 @@ if(isset($_POST['submitted'])){
         </div>
         <div class="zahlen">
             <h4><?php
-                $anzahl=0;
-                $sqla="SELECT id FROM anmelder";
+                $sqla="SELECT COUNT(id) FROM anmelder";
                 $resulta=mysqli_query($link,$sqla);
-                while(mysqli_fetch_assoc($resulta)){
-                    $anzahl++;
-                }
+                $row5=mysqli_fetch_array($resulta);
+                $anzahl=$row5[0];
                 echo $anzahl;
                 ?></h4>
             <h4>Anmeldungen zum Newsletter</h4>
         </div>
         <div class="zahlen">
             <h4><?php
-                    $sql1= "SELECT id, name, preis_intern , preis_extern FROM gericht ORDER BY name";
+                    $sql1= "SELECT COUNT(id) FROM gericht ";
                     $result1= mysqli_query($link,$sql1);
-                    $AnzahlSpeisen=0;
-                    while(mysqli_fetch_assoc($result1)) {
-                        $AnzahlSpeisen++;
-                        }
-                        echo $AnzahlSpeisen;
+                    $row4=mysqli_fetch_array($result1);
+                    $AnzahlSpeisen=$row4[0];
+                    echo $AnzahlSpeisen;
                     ?></h4>
             <h4>Speisen</h4>
         </div>
