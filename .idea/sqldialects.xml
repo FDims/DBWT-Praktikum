@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/M3/m3_41_testdatenbank.php" dialect="GenericSQL" />
-    <file url="file://$PROJECT_DIR$/M3/werbeseite_daten.sql" dialect="MariaDB" />
-    <file url="PROJECT" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/M3/Datenbank Inhalt/allergen.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/M3/Datenbank Inhalt/anmelder.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/M3/Datenbank Inhalt/besucher.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/M3/Datenbank Inhalt/gericht.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/M3/Datenbank Inhalt/gericht_hat_allergen.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/M3/Datenbank Inhalt/gericht_hat_kategorie.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/M3/Datenbank Inhalt/kategorie.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/M3/emensawerbeseite/allergen.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/M3/emensawerbeseite/anmelder.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/M3/emensawerbeseite/besucher.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/M3/emensawerbeseite/gericht.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/M3/emensawerbeseite/gericht_hat_allergen.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/M3/emensawerbeseite/gericht_hat_kategorie.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/M3/emensawerbeseite/kategorie.sql" dialect="MariaDB" />
   </component>
 </project>

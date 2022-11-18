@@ -4,17 +4,6 @@
  * Fachrial Dimas Putra, Perdana, 3503937
  * Jericho, Jordan, 3536333
  */
-session_status();
-$link = mysqli_connect(
-    "localhost", // Host der Datenbank
-    "root", // Benutzername zur Anmeldung
-    "root", // Passwort zur Anmeldung
-    "emensawerbeseite", // Auswahl der Datenbank
-    3306);
-if (!$link) {
-    echo "Verbindung fehlgeschlagen: ", mysqli_connect_error();
-    exit();
-}
 $Gerichte = [
     1 => ['name' => 'Rindfleisch mit Bambus, Kaiserschoten und rotem Paprika, dazu Mie Nudeln',
         'pint' => '3,50','pext' => '6,20','bild' => '<img class ="imag" src=./img/1-gerichte.jpg alt="Rindfleisch Bambus Mie"> '],
@@ -50,15 +39,16 @@ if(isset($_POST['submitted'])) {
     }
     if (!$fehler&&!$fehler1) {
         $datei = [
-            'Name'=>str_replace(" ","+",$Name),
+            'Name'=>$Name,
             'E-Mail'=>$Email,
             'Sprache'=>$sprache,
         ];
-        $WriteAnmelder="INSERT INTO emensawerbeseite.anmelder (name, email, sprache) VALUES ('".$datei['Name'].
-                        "', '".$datei['E-Mail']."', '".$datei['Sprache']."')";
-        mysqli_query($link,$WriteAnmelder);
+        $file = fopen("Newsletter.txt",'w');
+        foreach ($datei as $key=>$dateien){
+            fwrite($file,$dateien.' ');
+        }
+        fclose($file);
     }
-
 }
 ?>
 <?php ?>
@@ -132,90 +122,22 @@ if(isset($_POST['submitted'])){
             echo '<td class="menulist">'.$gericht['pext'].'</td>';
             echo '</tr>';
         }
-        $sql1= "SELECT id, name, preis_intern , preis_extern FROM gericht ORDER BY name";
-        $result1= mysqli_query($link,$sql1);
-        $sql2= "SELECT gericht_id, code FROM gericht_hat_allergen";
-        $result2=mysqli_query($link,$sql2);
-        for($i=0;$i<5;$i++){
-            $line=null;
-            $row1=mysqli_fetch_assoc($result1);
-            echo '<tr>';
-            echo '<td class="menulist menubild">'.'leider noch Keine Bild'.'</td>';
-            echo '<td class="menulist">'.$row1['name'].'<br>';
-            while($row2=mysqli_fetch_assoc($result2)){
-                if($row1['id']==$row2['gericht_id']){
-                    $line=$line.$row2['code'].', ';
-                }
-            }
-            if($line) {
-                echo '[' . $line . ']';
-            }
-            echo '</td>';
-            echo '<td class="menulist">'.number_format($row1['preis_intern'],2,',','.').'</td>';
-            echo '<td class="menulist">'.number_format($row1['preis_extern'],2,',','.').'</td>';
-        }
         ?>
     </table>
     <br>
-    <?php
-    $sql3="SELECT code, name, typ FROM allergen order by typ";
-    $result3=mysqli_query($link,$sql3);
-    $hilf_bool = true;
-    $typ=null;
-    while($row3=mysqli_fetch_assoc($result3)) {
-        if ($typ == $row3['typ']) {
-            $hilf_bool = false;
-        } else {
-            $hilf_bool = true;
-            echo '<br><br>';
-            $typ = $row3['typ'];
-        }
-        if ($hilf_bool) {
-            echo $row3['typ'] . '=' . '<br>';
-        }
-        echo $row3['code'] . ': ' . $row3['name'] . ', ';
 
-    }
-    ?>
-    <br>
     <h2 id="zzahlen">E-Mensa in Zahlen</h2>
     <div class="Zahl">
         <div class="zahlen">
-            <h4><?php
-                $sql4="SELECT counter FROM besucher";
-                $result4=mysqli_query($link,$sql4);
-                $besucher=mysqli_fetch_assoc($result4)['counter'];
-                if(!isset($_SESSION['hasVisited'])){
-                    $_SESSION['hasVisited']="yes";
-                    $besucher++;
-                    $sql4="UPDATE besucher SET counter=".$besucher;
-                    $result4=mysqli_query($link,$sql4);
-                }
-                echo $besucher;?></h4>
+            <h4>X</h4>
             <h4>Besucher</h4>
         </div>
         <div class="zahlen">
-            <h4><?php
-                $anzahl=0;
-                $sqla="SELECT id FROM anmelder";
-                $resulta=mysqli_query($link,$sqla);
-                while(mysqli_fetch_assoc($resulta)){
-                    $anzahl++;
-                }
-                echo $anzahl;
-                ?></h4>
+            <h4>Y</h4>
             <h4>Anmeldungen zum Newsletter</h4>
         </div>
         <div class="zahlen">
-            <h4><?php
-                    $sql1= "SELECT id, name, preis_intern , preis_extern FROM gericht ORDER BY name";
-                    $result1= mysqli_query($link,$sql1);
-                    $AnzahlSpeisen=0;
-                    while(mysqli_fetch_assoc($result1)) {
-                        $AnzahlSpeisen++;
-                        }
-                        echo $AnzahlSpeisen;
-                    ?></h4>
+            <h4>Z</h4>
             <h4>Speisen</h4>
         </div>
     </div>

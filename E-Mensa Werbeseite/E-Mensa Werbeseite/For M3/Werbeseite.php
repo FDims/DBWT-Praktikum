@@ -5,16 +5,12 @@
  * Jericho, Jordan, 3536333
  */
 session_status();
-$link = mysqli_connect(
-    "localhost", // Host der Datenbank
-    "root", // Benutzername zur Anmeldung
-    "root", // Passwort zur Anmeldung
-    "emensawerbeseite", // Auswahl der Datenbank
-    3306);
+$link = mysqli_connect("localhost", "root", "root", "emensawerbeseite", 3306);
 if (!$link) {
     echo "Verbindung fehlgeschlagen: ", mysqli_connect_error();
-    exit();
-}
+    exit();}
+
+//Für die Tabelle
 $Gerichte = [
     1 => ['name' => 'Rindfleisch mit Bambus, Kaiserschoten und rotem Paprika, dazu Mie Nudeln',
         'pint' => '3,50','pext' => '6,20','bild' => '<img class ="imag" src=./img/1-gerichte.jpg alt="Rindfleisch Bambus Mie"> '],
@@ -26,14 +22,14 @@ $Gerichte = [
         'pint' => '3,90','pext' => '6,30','bild' => '<img class ="imag" src="./img/4-gerichte.png" alt="Grüner Thai Curry">']
 ];
 
-
+//Variablen für Newsletter-Anmeldung initialisieren
 $Name = '';
 $Email = '';
 $sprache='';
 $fehler=NULL;
 $fehler1=NULL;
 
-
+//Wenn ein Formular abgegeben ist
 if(isset($_POST['submitted'])) {
     $Name = trim($_POST['Name']??NULL);
     $sprache=$_POST['sprache'];
@@ -74,6 +70,7 @@ if(isset($_POST['submitted'])) {
 </head>
 <body>
 <?php
+//Benachrichtigungen für Anmeldungsformular
 if(isset($_POST['submitted'])){
     if($fehler||$fehler1){
         echo '<div class="Fehler">'.'Fehler: ';
@@ -102,7 +99,7 @@ if(isset($_POST['submitted'])){
 </header>
 <main>
 
-    <img src="csm_mensenbistroskaffeebars_5bfbc30139.jpg" alt="Mensa Photo" id="Mensaphoto">
+    <img src=./img/csm_mensenbistroskaffeebars_5bfbc30139.jpg alt="Mensa Photo" id="Mensaphoto">
 
 
     <h2 id="ankundigung">Bald gibt es Essen auch Online ;)</h2>
@@ -124,6 +121,7 @@ if(isset($_POST['submitted'])){
             <th class="menulist">Preis extern</th>
         </tr>
         <?php
+        //Daten von Array
         foreach($Gerichte as $gericht){
             echo '<tr>';
             echo '<td class="menulist menubild">'.$gericht['bild'].'</td>';
@@ -132,10 +130,12 @@ if(isset($_POST['submitted'])){
             echo '<td class="menulist">'.$gericht['pext'].'</td>';
             echo '</tr>';
         }
+        //Daten von Datenbank
         $sql1= "SELECT id, name, preis_intern , preis_extern FROM gericht ORDER BY name";
         $result1= mysqli_query($link,$sql1);
         $sql2= "SELECT gericht_id, code FROM gericht_hat_allergen";
         $result2=mysqli_query($link,$sql2);
+
         for($i=0;$i<5;$i++){
             $line=null;
             $row1=mysqli_fetch_assoc($result1);
@@ -156,6 +156,7 @@ if(isset($_POST['submitted'])){
         }
         ?>
     </table>
+
     <br>
     <?php
     $sql3="SELECT code, name, typ FROM allergen order by typ";
@@ -177,6 +178,7 @@ if(isset($_POST['submitted'])){
 
     }
     ?>
+    <!-- Alle Anzahldateien von Datenbank -->
     <br>
     <h2 id="zzahlen">E-Mensa in Zahlen</h2>
     <div class="Zahl">
@@ -220,7 +222,7 @@ if(isset($_POST['submitted'])){
         </div>
     </div>
 
-
+    <!-- Formular -->
     <h2 id="kontakt">Interesse geweckt? Wir informieren Sie!</h2>
     <form method="post" action="Werbeseite.php">
         <input type="hidden" name="submitted" value="1">
@@ -248,8 +250,7 @@ if(isset($_POST['submitted'])){
         <button type="submit" name="submit" value="submit" id="submit">Zum Newsletter anmelden</button>
     </form>
 
-
-
+    <!-- Wichtig für uns -->
     <h2 id="unswichtig"> Das ist uns wichtig</h2>
     <ul class="wichtig">
         <li>Beste frische saisonale Zutaten</li>
