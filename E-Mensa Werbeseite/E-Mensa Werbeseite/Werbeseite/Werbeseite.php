@@ -54,12 +54,9 @@ if(isset($_POST['submitted'])) {
             'E-Mail'=>$Email,
             'Sprache'=>$sprache,
         ];
-        $file = fopen("Newsletter.txt",'a');
-        foreach ($datei as $key=>$dateien){
-            fwrite($file,$dateien.' ');
-        }
-        fwrite($file,"\n");
-        fclose($file);
+        $WriteAnmelder="INSERT INTO emensawerbeseite.anmelder (name, email, sprache) VALUES ('".$datei['Name'].
+                        "', '".$datei['E-Mail']."', '".$datei['Sprache']."')";
+        mysqli_query($link,$WriteAnmelder);
     }
 
 }
@@ -199,12 +196,13 @@ if(isset($_POST['submitted'])){
         </div>
         <div class="zahlen">
             <h4><?php
-                    $fp=fopen("Newsletter.txt",'r');
-                    $Anmelder=0;
-                    while(fgets($fp,4096)){
-                        $Anmelder++;
-                    }
-                    echo $Anmelder;
+                $anzahl=0;
+                $sqla="SELECT id FROM anmelder";
+                $resulta=mysqli_query($link,$sqla);
+                while(mysqli_fetch_assoc($resulta)){
+                    $anzahl++;
+                }
+                echo $anzahl;
                 ?></h4>
             <h4>Anmeldungen zum Newsletter</h4>
         </div>
