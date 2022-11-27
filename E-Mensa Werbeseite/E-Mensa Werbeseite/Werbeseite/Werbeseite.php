@@ -5,6 +5,16 @@
  * Jericho, Jordan, 3536333
  */
 session_status();
+$ip = NULL;
+if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+    $ip = $_SERVER['HTTP_CLIENT_IP'];
+}elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+}else{
+    $ip = $_SERVER['REMOTE_ADDR'];
+}
+$date = date("d.m.Y");
+
 $link = mysqli_connect(
     "localhost", // Host der Datenbank
     "root", // Benutzername zur Anmeldung
@@ -15,17 +25,6 @@ if (!$link) {
     echo "Verbindung fehlgeschlagen: ", mysqli_connect_error();
     exit();
 }
-$Gerichte = [
-    1 => ['name' => 'Rindfleisch mit Bambus, Kaiserschoten und rotem Paprika, dazu Mie Nudeln',
-        'pint' => '3,50','pext' => '6,20','bild' => '<img class ="imag" src=./img/1-gerichte.jpg alt="Rindfleisch Bambus Mie"> '],
-    2 => ['name' => 'Spinatrisotto mit kleinen Samosateigecken und gemischter salat',
-        'pint' => '2,90','pext' => '5,30','bild' => '<img class ="imag" src="./img/2-gerichte.jpg" alt="Spinatrisotto">'],
-    3 => ['name' => 'Lachsteriyaki, Frühlingszwiebelgemüse, dazu Mienudeln',
-        'pint' => '3,50','pext' => '6,20','bild' => '<img class ="imag" src="./img/3-gerichte.jpeg" alt="Lachsteriyaki">'],
-    4 => ['name' => 'Grüner Thai Curry mit Garnelen mit Korianderreis',
-        'pint' => '3,90','pext' => '6,30','bild' => '<img class ="imag" src="./img/4-gerichte.png" alt="Grüner Thai Curry">']
-];
-
 
 $Name = '';
 $Email = '';
@@ -124,14 +123,6 @@ if(isset($_POST['submitted'])){
             <th class="menulist">Preis extern</th>
         </tr>
         <?php
-        foreach($Gerichte as $gericht){
-            echo '<tr>';
-            echo '<td class="menulist menubild">'.$gericht['bild'].'</td>';
-            echo '<td class="menulist">'.$gericht['name'].'</td>';
-            echo '<td class="menulist">'.$gericht['pint'].'</td>';
-            echo '<td class="menulist">'.$gericht['pext'].'</td>';
-            echo '</tr>';
-        }
         $sql1= "SELECT id, name, preis_intern , preis_extern FROM gericht ORDER BY name";
         $result1= mysqli_query($link,$sql1);
         $sql2= "SELECT gericht_id, code FROM gericht_hat_allergen";
@@ -182,16 +173,19 @@ if(isset($_POST['submitted'])){
     <div class="Zahl">
         <div class="zahlen">
             <h4><?php
-                $sql4="SELECT counter FROM besucher";
+                $sql4="SELECT * FROM besucher WHERE 
+                           `IP-Adresse`='$ip' AND
+                           `Date`='$date'";
                 $result4=mysqli_query($link,$sql4);
-                $besucher=mysqli_fetch_assoc($result4)['counter'];
-                if(!isset($_SESSION['hasVisited'])){
-                    $_SESSION['hasVisited']="yes";
-                    $besucher++;
-                    $sql4="UPDATE besucher SET counter=".$besucher;
-                    $result4=mysqli_query($link,$sql4);
+                if(mysqli_num_rows($result4)==0){
+                    $sql4 = "INSERT INTO besucher(`IP-Adresse`, Date) VALUES ('$ip','$date')";
+                    mysqli_query($link,$sql4);
                 }
-                echo $besucher;?></h4>
+                $sql4="SELECT COUNT(`IP-Adresse`) FROM besucher";
+                $result4=mysqli_query($link,$sql4);
+                $row4 = mysqli_fetch_array($result4);
+                $Besucher =$row4[0];
+                echo $Besucher ;?></h4>
             <h4>Besucher</h4>
         </div>
         <div class="zahlen">
