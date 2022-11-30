@@ -1,3 +1,22 @@
+create table gericht
+(
+    id           bigint       not null
+        primary key,
+    name         varchar(80)  not null,
+    beschreibung varchar(800) not null,
+    erfasst_am   date         not null,
+    vegetarisch  tinyint(1)   not null,
+    vegan        tinyint(1)   not null,
+    preis_intern double       not null,
+    preis_extern double       not null,
+    constraint name
+        unique (name),
+    constraint preis_extern
+        check (`preis_extern` > `preis_intern`),
+    constraint preis_intern
+        check (`preis_intern` > 0)
+);
+
 INSERT INTO emensawerbeseite.gericht (id, name, beschreibung, erfasst_am, vegetarisch, vegan, preis_intern, preis_extern) VALUES (1, 'Bratkartoffeln mit Speck und Zwiebeln', 'Kartoffeln mit Zwiebeln und gut Speck', '2020-08-25', 0, 0, 2.3, 4);
 INSERT INTO emensawerbeseite.gericht (id, name, beschreibung, erfasst_am, vegetarisch, vegan, preis_intern, preis_extern) VALUES (3, 'Bratkartoffeln mit Zwiebeln', 'Kartoffeln mit Zwiebeln und ohne Speck', '2020-08-25', 1, 1, 2.3, 4);
 INSERT INTO emensawerbeseite.gericht (id, name, beschreibung, erfasst_am, vegetarisch, vegan, preis_intern, preis_extern) VALUES (4, 'Grilltofu', 'Fein gewürzt und mariniert', '2020-08-25', 1, 1, 2.5, 4.5);

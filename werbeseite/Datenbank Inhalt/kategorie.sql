@@ -1,3 +1,12 @@
+create table kategorie
+(
+    id        bigint       not null
+        primary key,
+    name      varchar(80)  not null,
+    eltern_id bigint       null,
+    bildname  varchar(200) null
+);
+
 INSERT INTO emensawerbeseite.kategorie (id, name, eltern_id, bildname) VALUES (1, 'Aktionen', null, 'kat_aktionen.png');
 INSERT INTO emensawerbeseite.kategorie (id, name, eltern_id, bildname) VALUES (2, 'Menus', null, 'kat_menu.gif');
 INSERT INTO emensawerbeseite.kategorie (id, name, eltern_id, bildname) VALUES (3, 'Hauptspeisen', 2, 'kat_menu_haupt.bmp');

@@ -1,3 +1,11 @@
+create table allergen
+(
+    code char(4)      not null
+        primary key,
+    name varchar(800) not null,
+    typ  varchar(20)  not null
+);
+
 INSERT INTO emensawerbeseite.allergen (code, name, typ) VALUES ('a', 'Getreideprodukte', 'Getreide (Gluten)');
 INSERT INTO emensawerbeseite.allergen (code, name, typ) VALUES ('a1', 'Weizen', 'Allergen');
 INSERT INTO emensawerbeseite.allergen (code, name, typ) VALUES ('a2', 'Roggen', 'Allergen');

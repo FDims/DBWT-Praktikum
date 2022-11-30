@@ -1,3 +1,13 @@
+create table gericht_hat_allergen
+(
+    code       char(4) null,
+    gericht_id bigint  not null,
+    constraint gericht_hat_allergen___fk
+        foreign key (gericht_id) references gericht (id),
+    constraint gericht_hat_allergen_allergen_code_fk
+        foreign key (code) references allergen (code)
+);
+
 INSERT INTO emensawerbeseite.gericht_hat_allergen (code, gericht_id) VALUES ('h', 1);
 INSERT INTO emensawerbeseite.gericht_hat_allergen (code, gericht_id) VALUES ('a3', 1);
 INSERT INTO emensawerbeseite.gericht_hat_allergen (code, gericht_id) VALUES ('a4', 1);

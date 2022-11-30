@@ -32,6 +32,9 @@ h1{
 h2{
     font-size: 34px;
 }
+#logo{
+    text-decoration: none;
+}
 .headlist{
     list-style-type: none;
     grid-auto-flow: column;
@@ -45,7 +48,7 @@ ul>li{
 main{
     background-color: #FFF6BF;
     margin: 10px auto;
-    max-width: 85%;
+    max-width: 75%;
     padding: 0 5px;
 }
 
@@ -65,7 +68,9 @@ main{
     justify-content: center;
     margin: auto;
     font-size: 24px;
-
+}
+#menu>tbody{
+    width: 100%;
 }
 .menulist{
     border: solid 1px;
@@ -118,6 +123,27 @@ footer{
 .imag{
     width: 500px;
 }
+.popup{
+    background: greenyellow;
+    position: absolute;
+    right: 25%;
+    top: 25%;
+    width:50% ;
+    height: 50%;
+}
+.popup>div{
+    display: grid;
+    margin: 15% 0;
+    justify-items: center;
+    align-content: center;
+}
+.popup>div>h1{
+    text-align: center;
+}
+.popup>div>p{
+    text-align: center;
+}
+
 
 
 
