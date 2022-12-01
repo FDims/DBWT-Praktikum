@@ -70,9 +70,6 @@ main{
     margin: auto;
     font-size: 24px;
 }
-#menu>tbody{
-    width: 100%;
-}
 .menulist{
     border: solid 1px;
     justify-content: center;
@@ -123,6 +120,17 @@ footer{
 
 .imag{
     width: 500px;
+}
+#table_wunschgericht{
+    border: solid;
+    border-collapse: collapse;
+    display: grid;
+    justify-content: center;
+    margin: auto;
+    font-size: 18px;
+}
+.wunschgericht{
+    border: solid;
 }
 .popup{
     background: greenyellow;

@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('Europe/Berlin');
-$datum = "Zeitzone : ".date_default_timezone_get()."\tDatum : ".date("d.m.y")."\tAktuelle Zeit : ".date("H:i:s");
+$datum =date("d.m.Y");;
 
 $link = mysqli_connect(
     "localhost", // Host der Datenbank
@@ -13,21 +13,26 @@ if (!$link) {
     exit();
 }
 
-$Name=NUll;
-$email = NUll;
-$Gericht = NUll;
-$Beschreibung = NULL;
+$Name='';
+$email = '';
+$Gericht = '';
+$Beschreibung = '';
 $Fehler=NULL;
 $Fehler1=NULL;
 $Fehler2=NULL;
 if(isset($_POST['submitted'])){
     $Name=str_replace("\'","",trim($_POST['Name']??NULL));
-    $Email =str_replace("\'","",trim($_POST['E-Mail']??NULL));
+    $email =str_replace("\'","",trim($_POST['E-Mail']??NULL));
     $Gericht=str_replace("\'","",trim($_POST['Namegericht']??NULL));
     $Beschreibung=str_replace("\'","",trim($_POST['Beschreibung']??NULL));
 
-    if(empty($Email)){
+    if(empty($Name)){
+        $Name ="Anonym";
+    }
+    if(empty($email)){
         $Fehler="Email muss gestzt werden!";
+    }else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $Fehler = 'E-Mail-Adresse ist nicht korrekt formatiert';
     }
     if(empty($Gericht)){
         $Fehler1="Gercihtsname muss gesetzt werden!";
@@ -35,14 +40,15 @@ if(isset($_POST['submitted'])){
     if(empty($Beschreibung)){
         $Fehler2="Beschreibung muss gesetzt werden!";
     }
-    if (!$Fehler&&!$Fehler1&&$Fehler2) {
+    if (!$Fehler&&!$Fehler1&&!$Fehler2) {
         $input =['Name'=>mysqli_real_escape_string($link,$Name),
-            'E-Mail'=>mysqli_real_escape_string($link,$Email),
+            'E-Mail'=>mysqli_real_escape_string($link,$email),
             'Gericht'=>mysqli_real_escape_string($link,$Gericht),
             'Beschreibung'=>mysqli_real_escape_string($link,$Beschreibung)
         ];
-        $WriteAnmelder="INSERT INTO emensawerbeseite.wunschgericht (Name, Email, Gerict, Beschreibung, date) VALUES ('".$input['Name'].
+        $WriteWunsch="INSERT INTO emensawerbeseite.wunschgericht (Name, Email, Gerict, Beschreibung, date) VALUES ('".$input['Name'].
             "', '".$input['E-Mail']."', '".$input['Gericht']."', '".$input['Beschreibung']."', '".$datum."')";
+        mysqli_query($link,$WriteWunsch);
     }
 }
 ?>
