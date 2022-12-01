@@ -12,6 +12,9 @@
             <li><a href="/demo/demo">Demo</a></li>
             <li><a href="/demo/dbconnect">Datenbank: Gerichte</a></li>
             <li><a href="/examples/m4_7a_queryparameter">m4_7a_queryparameter</a></li>
+            <li><a href="/examples/m4_7b_kategorie">m4_7b_kategorie</a></li>
+            <li><a href="/examples/m4_7c_gerichte">m4_7c_gerichte</a></li>
+            <li><a href="/examples/m4_7d_layout">m4_7d_layout</a></li>
         </ul>
         <ul>
             <li><a href="/debug"><code class="language-php">phpinfo();</code></a></li>

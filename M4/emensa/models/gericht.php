@@ -23,5 +23,13 @@ function db_gericht_select_all() {
     finally {
         return $data;
     }
+}
+function db_gericht_preisintern(){
+    $link = connectdb();
+    $sql = "SELECT name, preis_intern, preis_extern FROM gericht ORDER BY name DESC";
+    $result = mysqli_query($link, $sql);
+    $data = mysqli_fetch_all($result, MYSQLI_BOTH);
 
+    mysqli_close($link);
+    return $data;
 }
