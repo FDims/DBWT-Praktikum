@@ -18,7 +18,7 @@ $date = date("d.m.Y");
 $link = mysqli_connect(
     "localhost", // Host der Datenbank
     "root", // Benutzername zur Anmeldung
-    "2804", // Passwort zur Anmeldung
+    "root", // Passwort zur Anmeldung
     "emensawerbeseite", // Auswahl der Datenbank
     3306);
 if (!$link) {
