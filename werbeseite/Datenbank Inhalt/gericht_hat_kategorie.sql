@@ -2,8 +2,12 @@ create table gericht_hat_kategorie
 (
     gericht_id   bigint not null,
     kategorie_id bigint not null,
+    primary key (gericht_id, kategorie_id),
+    constraint unique_id
+        unique (gericht_id, kategorie_id),
     constraint gericht_hat_kategorie_gericht_null_fk
-        foreign key (gericht_id) references gericht (id),
+        foreign key (gericht_id) references gericht (id)
+            on delete cascade,
     constraint gericht_hat_kategorie_kategorie_null_fk
         foreign key (kategorie_id) references kategorie (id)
 );
@@ -16,8 +20,8 @@ INSERT INTO emensawerbeseite.gericht_hat_kategorie (gericht_id, kategorie_id) VA
 INSERT INTO emensawerbeseite.gericht_hat_kategorie (gericht_id, kategorie_id) VALUES (7, 3);
 INSERT INTO emensawerbeseite.gericht_hat_kategorie (gericht_id, kategorie_id) VALUES (9, 3);
 INSERT INTO emensawerbeseite.gericht_hat_kategorie (gericht_id, kategorie_id) VALUES (16, 4);
-INSERT INTO emensawerbeseite.gericht_hat_kategorie (gericht_id, kategorie_id) VALUES (17, 4);
-INSERT INTO emensawerbeseite.gericht_hat_kategorie (gericht_id, kategorie_id) VALUES (18, 4);
 INSERT INTO emensawerbeseite.gericht_hat_kategorie (gericht_id, kategorie_id) VALUES (16, 5);
+INSERT INTO emensawerbeseite.gericht_hat_kategorie (gericht_id, kategorie_id) VALUES (17, 4);
 INSERT INTO emensawerbeseite.gericht_hat_kategorie (gericht_id, kategorie_id) VALUES (17, 5);
+INSERT INTO emensawerbeseite.gericht_hat_kategorie (gericht_id, kategorie_id) VALUES (18, 4);
 INSERT INTO emensawerbeseite.gericht_hat_kategorie (gericht_id, kategorie_id) VALUES (18, 5);

@@ -34,9 +34,9 @@ $fehler1=NULL;
 
 
 if(isset($_POST['submitted'])) {
-    $Name = trim($_POST['Name']??NULL);
+    $Name = str_replace("\'","",trim($_POST['Name']??NULL));
     $sprache=$_POST['sprache'];
-    $Email = $_POST['E-Mail'] ??NULL;
+    $Email = str_replace("\'","",trim($_POST['E-Mail'] ??NULL));
     $fehler=false;
     $fehler1=false;
     if (empty($Name)) {
@@ -49,8 +49,8 @@ if(isset($_POST['submitted'])) {
     }
     if (!$fehler&&!$fehler1) {
         $datei = [
-            'Name'=>str_replace("\'","",$Name),
-            'E-Mail'=>str_replace("\'","",$Email),
+            'Name'=>mysqli_real_escape_string($link,$Name),
+            'E-Mail'=>mysqli_real_escape_string($link,$Email),
             'Sprache'=>$sprache,
         ];
         $WriteAnmelder="INSERT INTO emensawerbeseite.anmelder (name, email, sprache) VALUES ('".$datei['Name'].
@@ -154,7 +154,7 @@ if(isset($_POST['submitted'])){
         </tbody>
     </table>
     <br>
-    <ul>
+    <ul id="allergen">
     <?php
     $sql3="SELECT code, name, typ FROM allergen order by typ";
     $result3=mysqli_query($link,$sql3);
@@ -246,7 +246,8 @@ if(isset($_POST['submitted'])){
         <button type="submit" name="submit" value="submit" id="submit">Zum Newsletter anmelden</button>
     </form>
 
-
+    <h2>Haben Sie ein Wunschgericht ?</h2>
+    <a href="wunschgericht.php">Klicken Sie Hier!</a>
 
     <h2 id="unswichtig"> Das ist uns wichtig</h2>
     <ul class="wichtig">
