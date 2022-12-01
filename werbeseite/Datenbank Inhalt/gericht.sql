@@ -17,6 +17,9 @@ create table gericht
         check (`preis_intern` > 0)
 );
 
+create index Name_indexiert
+    on gericht (name);
+
 INSERT INTO emensawerbeseite.gericht (id, name, beschreibung, erfasst_am, vegetarisch, vegan, preis_intern, preis_extern) VALUES (1, 'Bratkartoffeln mit Speck und Zwiebeln', 'Kartoffeln mit Zwiebeln und gut Speck', '2020-08-25', 0, 0, 2.3, 4);
 INSERT INTO emensawerbeseite.gericht (id, name, beschreibung, erfasst_am, vegetarisch, vegan, preis_intern, preis_extern) VALUES (3, 'Bratkartoffeln mit Zwiebeln', 'Kartoffeln mit Zwiebeln und ohne Speck', '2020-08-25', 1, 1, 2.3, 4);
 INSERT INTO emensawerbeseite.gericht (id, name, beschreibung, erfasst_am, vegetarisch, vegan, preis_intern, preis_extern) VALUES (4, 'Grilltofu', 'Fein gewürzt und mariniert', '2020-08-25', 1, 1, 2.5, 4.5);

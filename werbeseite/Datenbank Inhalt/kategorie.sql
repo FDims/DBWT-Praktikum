@@ -4,7 +4,9 @@ create table kategorie
         primary key,
     name      varchar(80)  not null,
     eltern_id bigint       null,
-    bildname  varchar(200) null
+    bildname  varchar(200) null,
+    constraint kategorie_kategorie__fk
+        foreign key (eltern_id) references kategorie (id)
 );
 
 INSERT INTO emensawerbeseite.kategorie (id, name, eltern_id, bildname) VALUES (1, 'Aktionen', null, 'kat_aktionen.png');

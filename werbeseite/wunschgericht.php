@@ -21,10 +21,10 @@ $Fehler=NULL;
 $Fehler1=NULL;
 $Fehler2=NULL;
 if(isset($_POST['submitted'])){
-    $Name=trim($_POST['Name']??NULL);
-    $Email =trim($_POST['E-Mail']??NULL);
-    $Gericht=trim($_POST['Namegericht']??NULL);
-    $Beschreibung=trim($_POST['Beschreibung']??NULL);
+    $Name=str_replace("\'","",trim($_POST['Name']??NULL));
+    $Email =str_replace("\'","",trim($_POST['E-Mail']??NULL));
+    $Gericht=str_replace("\'","",trim($_POST['Namegericht']??NULL));
+    $Beschreibung=str_replace("\'","",trim($_POST['Beschreibung']??NULL));
 
     if(empty($Email)){
         $Fehler="Email muss gestzt werden!";
@@ -36,10 +36,10 @@ if(isset($_POST['submitted'])){
         $Fehler2="Beschreibung muss gesetzt werden!";
     }
     if (!$Fehler&&!$Fehler1&&$Fehler2) {
-        $input =['Name'=>str_replace("\'","",$Name),
-            'E-Mail'=>str_replace("\'","",$Email),
-            'Gericht'=>str_replace("\'","",$Gericht),
-            'Beschreibung'=>str_replace("\'","",$Beschreibung)
+        $input =['Name'=>mysqli_real_escape_string($link,$Name),
+            'E-Mail'=>mysqli_real_escape_string($link,$Email),
+            'Gericht'=>mysqli_real_escape_string($link,$Gericht),
+            'Beschreibung'=>mysqli_real_escape_string($link,$Beschreibung)
         ];
         $WriteAnmelder="INSERT INTO emensawerbeseite.wunschgericht (Name, Email, Gerict, Beschreibung, date) VALUES ('".$input['Name'].
             "', '".$input['E-Mail']."', '".$input['Gericht']."', '".$input['Beschreibung']."', '".$datum."')";
@@ -104,12 +104,12 @@ if(isset($_POST['submitted'])){
 
         <div >
             <label for="Namegericht">Name des Gerichts:</label> <br>
-            <input type="text" name="Namegericht" id="Namegericht" placeholder="Name des Gerichts" required>
+            <input type="text" name="Namegericht" id="Namegericht" placeholder="Name des Gerichts" maxlength="100" required>
         </div>
 
         <div >
             <label for="Beschreibung">Beschreibung:</label> <br>
-            <input type="text" name="Beschreibung" id="Beschreibung" placeholder="Beschreibung" maxlength="100" required>
+            <textarea name="Beschreibung" id="Beschreibung" placeholder="Beschreibung"  required></textarea>
         </div>
 
         <button type="submit" name="submit" value="submit" id="submit">Wunsch abschicken</button>
