@@ -1,6 +1,5 @@
 @extends("layout")
 
-<<<<<<< HEAD
 @section("header")
     <nav>
         <a href="" id="logo"><h1 class="head">
@@ -12,26 +11,6 @@
             <li><a href="#zzahlen">Zahlen</a></li>
             <li><a href="#kontakt">Kontak</a></li>
             <li><a href="#unswichtig">Wichtig für uns</a></li>
-=======
-@section("content")
-    <header class="mt-5">
-        <h1>Hauptseite E-Mensa</h1>
-        <img src="./img/test.jpg"
-             alt="Testbild von https://cdn.pixabay.com/photo/2014/06/03/19/38/road-sign-361513_960_720.jpg">
-    </header>
-    <nav class="mt-5">
-        <strong>Navigation</strong>
-        <ul>
-            <li><a href="/demo/demo">Demo</a></li>
-            <li><a href="/demo/dbconnect">Datenbank: Gerichte</a></li>
-            <li><a href="/examples/m4_7a_queryparameter">m4_7a_queryparameter</a></li>
-            <li><a href="/examples/m4_7b_kategorie">m4_7b_kategorie</a></li>
-            <li><a href="/examples/m4_7c_gerichte">m4_7c_gerichte</a></li>
-            <li><a href="/examples/m4_7d_layout">m4_7d_layout</a></li>
-        </ul>
-        <ul>
-            <li><a href="/debug"><code class="language-php">phpinfo();</code></a></li>
->>>>>>> 2e79b5acc57cdc8ea0d00a7d18c1483cdb2f50fa
         </ul>
     </nav>
 @endsection
