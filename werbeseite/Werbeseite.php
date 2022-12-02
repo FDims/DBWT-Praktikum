@@ -92,7 +92,7 @@ if(isset($_POST['submitted'])){
                 </div>';
     }
 }?>
-<header>
+<nav>
     <a href="Werbeseite.php" id="logo"><h1 class="head">
         E-Mensa
     </h1></a>
@@ -103,7 +103,7 @@ if(isset($_POST['submitted'])){
         <li><a href="#kontakt">Kontak</a></li>
         <li><a href="#unswichtig">Wichtig für uns</a></li>
     </ul>
-</header>
+</nav>
 <main>
 
     <img src="csm_mensenbistroskaffeebars_5bfbc30139.jpg" alt="Mensa Photo" id="Mensaphoto">

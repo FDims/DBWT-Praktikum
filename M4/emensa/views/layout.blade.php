@@ -11,12 +11,13 @@
     <meta name="theme-color" content="#dadada">
 </head>
 <body>
+@yield("header")
 <div class="container">
     <div class="row">
         @yield("content")
     </div>
 </div>
-
+@yield("footer")
 @yield("jsextra")
 </body>
 
