@@ -18,7 +18,7 @@ $date = date("d.m.Y");
 $link = mysqli_connect(
     "localhost", // Host der Datenbank
     "root", // Benutzername zur Anmeldung
-    "root", // Passwort zur Anmeldung
+    "2804", // Passwort zur Anmeldung
     "emensawerbeseite", // Auswahl der Datenbank
     3306);
 if (!$link) {
@@ -248,6 +248,29 @@ if(isset($_POST['submitted'])){
 
     <h2>Haben Sie ein Wunschgericht ?</h2>
     <a href="wunschgericht.php">Klicken Sie Hier!</a>
+    <h3>5 Neueste Wunschgericht</h3>
+    <table id="table_wunschgericht">
+        <tr>
+            <th class="wunschgericht">Name</th>
+            <th class="wunschgericht">Gericht</th>
+            <th class="wunschgericht">Beschreibung</th>
+            <th class="wunschgericht">Datum</th>
+        </tr>
+
+        <?php
+        $sql1= "SELECT id,Name,Gerict,Beschreibung,date FROM wunschgericht ORDER BY id DESC LIMIT 5";
+        $result1= mysqli_query($link,$sql1);
+        while($row3=mysqli_fetch_assoc($result1)) {
+            echo '<tr>';
+            echo '<td class="wunschgericht">'.$row3['Name'].'</td>';
+            echo '<td class="wunschgericht">'.$row3['Gerict'].'</td>';
+            echo '<td class="wunschgericht">'.$row3['Beschreibung'].'</td>';
+            echo '<td class="wunschgericht">'.$row3['date'].'</td>';
+            echo '</tr>';
+        }
+        ?>
+    </table>
+
 
     <h2 id="unswichtig"> Das ist uns wichtig</h2>
     <ul class="wichtig">
