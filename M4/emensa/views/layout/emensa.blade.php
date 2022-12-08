@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ihre E-Mensa</title>
-    <link rel="stylesheet" href="stylesheet.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap" rel="stylesheet">
+    @yield('cssextra')
 </head>
 <body>
 <header>
@@ -22,6 +19,7 @@
     </ul>
 </header>
 <div>@yield('content')</div>
+<div>@yield('navi')</div>
 </body>
 <footer>
     <ul class="foot">

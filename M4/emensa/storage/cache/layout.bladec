@@ -11,13 +11,12 @@
  <meta name="theme-color" content="#dadada">
 </head>
 <body>
-<?php echo $this->yieldContent("header"); ?>
 <div class="container">
  <div class="row">
  <?php echo $this->yieldContent("content"); ?>
  </div>
 </div>
-<?php echo $this->yieldContent("footer"); ?>
+
 <?php echo $this->yieldContent("jsextra"); ?>
 </body>
 
