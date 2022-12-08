@@ -19,5 +19,5 @@ return array(
     '/m4_7b_kategorie' => 'ExamplesController@m4_7b_kategorie',
     '/m4_7c_gerichte' => 'ExamplesController@m4_7c_gerichte',
     '/m4_7d_layout' => 'ExamplesController@m4_7d_layout',
-    '/werbeseite' => 'WerbeseiteController@werbeseite'
+    '/homealt' => 'HomeController@index'
 );
