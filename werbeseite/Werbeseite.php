@@ -101,6 +101,7 @@ if(isset($_POST['submitted'])){
         <li><a href="#speisen">Speisen</a></li>
         <li><a href="#zzahlen">Zahlen</a></li>
         <li><a href="#kontakt">Kontak</a></li>
+        <li><a href="#wunsch">Wunschgericht</a></li>
         <li><a href="#unswichtig">Wichtig für uns</a></li>
     </ul>
 </nav>
@@ -230,7 +231,7 @@ if(isset($_POST['submitted'])){
 
         <div class="form">
             <label for="email">Ihr E-Mail:</label> <br>
-            <input type="email" name="E-Mail" id="email" required>
+            <input type="email" name="E-Mail" id="email" placeholder="E-Mail" required>
         </div>
 
         <div class="form">
@@ -246,7 +247,7 @@ if(isset($_POST['submitted'])){
         <button type="submit" name="submit" value="submit" id="submit">Zum Newsletter anmelden</button>
     </form>
 
-    <h2>Haben Sie ein Wunschgericht ?</h2>
+    <h2 id="wunsch">Haben Sie ein Wunschgericht ?</h2>
     <a href="wunschgericht.php">Klicken Sie Hier!</a>
     <h3>5 Neueste Wunschgericht</h3>
     <table id="table_wunschgericht">

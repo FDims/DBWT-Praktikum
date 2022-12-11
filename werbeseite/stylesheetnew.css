@@ -135,6 +135,7 @@ footer{
 .popup{
     background: greenyellow;
     position: absolute;
+    position: fixed;
     right: 25%;
     top: 25%;
     width:50% ;
