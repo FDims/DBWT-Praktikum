@@ -1,17 +1,16 @@
 create table benutzer
 (
-    id           bigint       not null
+    id                bigint auto_increment
         primary key,
-    name                varchar(200)  not null,
-    email               varchar(100) not null unique ,
-    passwort            varchar(200)   not null,
-    admin               boolean   not null,
-    anzahlfehler        int   not null,
-    anzahlanmeldungen   int   not null,
-    letzteanmeldung     date,
-    letztefehler        date
-    constraint name
-        unique (name),
+    name              varchar(200)  not null,
+    email             varchar(100)  not null,
+    passwort          varchar(200)  not null,
+    admin             tinyint(1)    not null,
+    anzahlfehler      int default 0 not null,
+    anzahlanmeldungen int default 0 not null,
+    letzteanmeldungen datetime      null,
+    letztefehler      datetime      null,
     constraint email
-        unique (email),
+        unique (email)
 );
+
