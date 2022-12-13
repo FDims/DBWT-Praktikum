@@ -3,6 +3,10 @@
   <component name="PhpIncludePathManager">
     <include_path>
       <path value="C:/Program Files/php/ext" />
+      <path value="$PROJECT_DIR$/emensa/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/emensa/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/emensa/vendor/eftec/bladeone" />
+      <path value="$PROJECT_DIR$/emensa/vendor/composer" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
