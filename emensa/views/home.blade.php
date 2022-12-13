@@ -15,7 +15,7 @@
             <li><a href="/examples/m4_7b_kategorie">m4_7b_kategorie</a></li>
             <li><a href="/examples/m4_7c_gerichte">m4_7c_gerichte</a></li>
             <li><a href="/examples/m4_7d_layout">m4_7d_layout</a></li>
-            <li><a href="/werbeseite">werbeseite</a></li>
+            <li><a href="/">werbeseite</a></li>
         </ul>
         <ul>
             <li><a href="/debug"><code class="language-php">phpinfo();</code></a></li>
