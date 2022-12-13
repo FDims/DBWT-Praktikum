@@ -1,7 +1,0 @@
-Zeitzone : Europe/Berlin	Datum : 28.11.22	Aktuelle Zeit : 14:12:34
-
-Server Name : PhpStorm 2022.2.2
-Server IP Adresse : 127.0.0.1
-Server Port : 63342
-Client IP Adresse : 127.0.0.1
-Server Protokol : HTTP/1.1
