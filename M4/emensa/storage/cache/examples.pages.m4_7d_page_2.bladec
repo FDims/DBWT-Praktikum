@@ -1,0 +1,17 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('header'); ?>
+ <div>
+ <h3>Header für zweite Seite</h3>
+ </div>
+<?php $this->stopSection(); ?>
+<?php $this->startSection('main'); ?>
+ <div>
+ <h1>Hi, Main-bereich für zweite Seite</h1>
+ </div>
+<?php $this->stopSection(); ?>
+<?php $this->startSection('footer'); ?>
+ <div>
+ <h3>Footer-bereich für zweite Seite</h3>
+ </div>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('examples.layout.m4_7d_layout'); } ?>

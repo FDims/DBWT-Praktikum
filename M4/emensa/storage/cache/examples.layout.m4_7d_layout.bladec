@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8">
+ <title><?php echo $this->yieldContent('title'); ?></title>
+</head>
+<body>
+<?php $this->startSection('header'); ?>
+<div id="header">
+ Nichts
+</div>
+<?php echo $this->yieldSection(); ?>
+<?php $this->startSection('main'); ?>
+<div>
+ <h3>Dies ist die erste Seite und das ist die Main Section</h3>
+</div>
+<?php echo $this->yieldSection(); ?>
+<?php $this->startSection('footer'); ?>
+<div>
+ <h4>Footerbereich</h4>
+</div>
+<?php echo $this->yieldSection(); ?>
+</body>
+</html>
