@@ -70,6 +70,10 @@ main{
     margin: auto;
     font-size: 24px;
 }
+.foodimg{
+    width: 150px;
+    height: 150px;
+}
 .menulist{
     border: solid 1px;
     justify-content: center;
@@ -135,6 +139,7 @@ footer{
 .popup{
     background: greenyellow;
     position: absolute;
+    position: fixed;
     right: 25%;
     top: 25%;
     width:50% ;
