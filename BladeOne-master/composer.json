@@ -19,7 +19,8 @@
   ],
   "require": {
     "php": ">=7.2.5",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-mysqli": "*"
   },
   "suggest": {
     "ext-mbstring": "This extension is used if it's active",
