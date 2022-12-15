@@ -279,5 +279,12 @@ function view($viewname, $viewargs = array())
 
 function logger()
 {
+    $logger = new Logger('my_logger');
+// Now add some handlers
+    $logger->pushHandler(new StreamHandler(__DIR__.'/my_app.log', Level::Debug));
+    $logger->pushHandler(new FirePHPHandler());
 
+// You can now use your logger
+    $logger->info('My logger is now ready');
+    return $logger;
 }
