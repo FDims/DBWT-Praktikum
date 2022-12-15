@@ -19,5 +19,6 @@ return array(
     '/m4_7b_kategorie' => 'ExamplesController@m4_7b_kategorie',
     '/m4_7c_gerichte' => 'ExamplesController@m4_7c_gerichte',
     '/m4_7d_layout' => 'ExamplesController@m4_7d_layout',
-    '/homealt' => 'HomeController@index'
+    '/homealt' => 'HomeController@index',
+    '/anmeldung' => 'AnmeldungController@anmeldung'
 );
