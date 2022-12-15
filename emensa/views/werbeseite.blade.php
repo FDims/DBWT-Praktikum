@@ -17,15 +17,21 @@
         <table id="menu">
             <tbody>
             <tr>
+                <th class="menulist">Bild</th>
                 <th class="menulist">Gerichte</th>
                 <th class="menulist">Preis intern</th>
                 <th class="menulist">Preis extern</th>
             </tr>
+
             @foreach($gerichte as $gericht)
                 <tr>
-                    <td>{{ utf8_encode($gericht['name']) }}</td>
-                    <td>{{$gericht['preis_intern']}}</td>
-                    <td>{{$gericht['preis_extern']}}</td>
+                        <?php
+                            $bildname=$gericht['bildname']!=null?$gericht['bildname']:"00_image_missing.jpg";
+                        ?>
+                    <td class="menulist"><img src="./img/gerichte/{{$bildname}}" class="foodimg" alt="{{$gericht['bildname']}}"></td>
+                    <td class="menulist">{{ utf8_encode($gericht['name']) }}</td>
+                    <td class="menulist">{{$gericht['preis_intern']}}</td>
+                    <td class="menulist">{{$gericht['preis_extern']}}</td>
                 </tr>
             @endforeach
             </tbody>

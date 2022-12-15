@@ -35,7 +35,7 @@ function db_gericht_preisintern(){
 }
 function db_gericht_tabelle(){
     $link = connectdb();
-    $sql = "SELECT name, preis_intern, preis_extern FROM gericht ORDER BY name ASC LIMIT 5";
+    $sql = "SELECT name, preis_intern, preis_extern,bildname FROM gericht ORDER BY name ASC LIMIT 5";
     $result = mysqli_query($link, $sql);
     $data = mysqli_fetch_all($result, MYSQLI_BOTH);
 
