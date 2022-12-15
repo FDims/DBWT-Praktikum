@@ -10,7 +10,7 @@ if (!$link) {
     exit();
 }
 
-function passowort (string $passwort) : string{
+function passwort (string $passwort) : string{
     $salt = "Team_905";
     return sha1($salt.$passwort);
 }
