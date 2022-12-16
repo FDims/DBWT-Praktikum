@@ -5,6 +5,10 @@ const PUBLIC_DIRNAME = "public";
 const CONFIG_WEBROUTES = "/../config/web.php";
 const CONFIG_DB = "/../config/db.php";
 
+use Monolog\Level;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use Monolog\Handler\FirePHPHandler;
 // DEMO
 try {
     if (!file_exists(realpath($_SERVER['DOCUMENT_ROOT'] . "/../vendor/autoload.php"))) {
@@ -277,22 +281,15 @@ function view($viewname, $viewargs = array())
 
     return $blade->run($viewname, $viewargs);
 }
-use Monolog\Level;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-use Monolog\Handler\FirePHPHandler;
+
 
 function logger()
 {
-    if(!isset($logger))
-    {$logger = new Logger('my_logger');
+    global $logger;
+    $logger = new Logger('my_logger');
 // Now add some handlers
-        $logger->pushHandler(new StreamHandler('../storage/logs/log.txt', Level::Warning));
-        $logger->pushHandler(new FirePHPHandler());}
+    $logger->pushHandler(new StreamHandler('../storage/logs/log.txt', Level::Info));
+    $logger->pushHandler(new FirePHPHandler());
 // You can now use your logger
-    if($_SESSION['anmeldung_erfolgreich'] == true) $logger->info('Anmeldung');
-    elseif ($_SESSION['anmeldung_erfolgreich'] == false) $logger->warning('Fehler');
-    elseif(!isset($_SESSION)){$logger->info('Abmeldung');}
-    $logger->info('Zugriff auf Hauptseite');
     return $logger;
 }

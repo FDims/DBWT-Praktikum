@@ -32,20 +32,20 @@ class AnmeldungController
                 $_SESSION['anmeldung_message'] = 'Anmeldung erfolgreich!';
                 $_SESSION['email'] = $user['name'];
                 letzteAnmeldung($email);
-                logger();
+                logger()->info($_POST['email'].' Anmeldung');
                 header('Location: /');
             }else {
                 $_SESSION['anmeldung_erfolgreich'] = false;
                 $_SESSION['anmeldung_message'] = 'Anmeldung leider nicht erfolgreich, E-Mail oder Passwort falsch.';
                 fehlerAnmeldung($email);
-                logger();
+                logger()->warning($_POST['email'].' Fehler bei Anmeldung');
                 header('Location: /anmeldung');
             }
         }
     }
     public function logout(){
+        logger()->info($_SESSION['email'].' Abmeldung');
         session_destroy();
-        logger();
         header('location: /');
     }
 

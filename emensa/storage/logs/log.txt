@@ -1,2 +1,5 @@
-[2022-12-16T11:16:33.086918+00:00] my_logger.WARNING: Fehler [] []
-[2022-12-16T11:21:22.570374+00:00] my_logger.WARNING: Fehler [] []
+[2022-12-16T13:49:48.283229+00:00] my_logger.WARNING: admin@emensa.example Fehler bei Anmeldung [] []
+[2022-12-16T13:49:51.045549+00:00] my_logger.INFO: admin@emensa.example Anmeldung [] []
+[2022-12-16T13:49:52.594922+00:00] my_logger.INFO: admin Abmeldung [] []
+[2022-12-16T13:53:02.436662+00:00] my_logger.INFO: admin@emensa.example Anmeldung [] []
+[2022-12-16T13:53:04.964913+00:00] my_logger.INFO: admin Abmeldung [] []
