@@ -1,8 +1,10 @@
 <?php
 require_once('../models/benutzer.php');
 
+
 class AnmeldungController
 {
+
     public function login(RequestData $rd){
         $var = $_SESSION['anmeldung_message']??null;
         return view('anmeldung',['var'=>$var]);
@@ -30,17 +32,20 @@ class AnmeldungController
                 $_SESSION['anmeldung_message'] = 'Anmeldung erfolgreich!';
                 $_SESSION['email'] = $user['name'];
                 letzteAnmeldung($email);
+                logger();
                 header('Location: /');
             }else {
                 $_SESSION['anmeldung_erfolgreich'] = false;
-                $_SESSION['anmeldung_message'] = 'Anmeldung ledier nicht erfolgreich, E-Mail oder Passwort falsch.';
+                $_SESSION['anmeldung_message'] = 'Anmeldung leider nicht erfolgreich, E-Mail oder Passwort falsch.';
                 fehlerAnmeldung($email);
+                logger();
                 header('Location: /anmeldung');
             }
         }
     }
     public function logout(){
         session_destroy();
+        logger();
         header('location: /');
     }
 

@@ -277,15 +277,22 @@ function view($viewname, $viewargs = array())
 
     return $blade->run($viewname, $viewargs);
 }
+use Monolog\Level;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use Monolog\Handler\FirePHPHandler;
 
 function logger()
 {
-    $logger = new Logger('my_logger');
+    if(!isset($logger))
+    {$logger = new Logger('my_logger');
 // Now add some handlers
-    $logger->pushHandler(new StreamHandler(__DIR__.'/my_app.log', Level::Debug));
-    $logger->pushHandler(new FirePHPHandler());
-
+        $logger->pushHandler(new StreamHandler('../storage/logs/log.txt', Level::Warning));
+        $logger->pushHandler(new FirePHPHandler());}
 // You can now use your logger
-    $logger->info('My logger is now ready');
+    if($_SESSION['anmeldung_erfolgreich'] == true) $logger->info('Anmeldung');
+    elseif ($_SESSION['anmeldung_erfolgreich'] == false) $logger->warning('Fehler');
+    elseif(!isset($_SESSION)){$logger->info('Abmeldung');}
+    $logger->info('Zugriff auf Hauptseite');
     return $logger;
 }
