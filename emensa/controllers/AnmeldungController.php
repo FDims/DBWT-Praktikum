@@ -1,6 +1,6 @@
 <?php
 require_once('../models/benutzer.php');
-
+//require_once ($_SERVER['DOCUMENT_ROOT'].'/beispiele/m5_5.sql');
 
 class AnmeldungController
 {
@@ -31,7 +31,10 @@ class AnmeldungController
                 $_SESSION['anmeldung_erfolgreich'] = true;
                 $_SESSION['anmeldung_message'] = 'Anmeldung erfolgreich!';
                 $_SESSION['email'] = $user['name'];
-                letzteAnmeldung($email);
+                //letzteAnmeldung($email);
+                $sid = $user['id'];
+                $sql1 = "CALL anzahlanmeldungen('$sid');";
+                mysqli_query($link,$sql1);
                 logger()->info($_POST['email'].' Anmeldung');
                 header('Location: /');
             }else {
