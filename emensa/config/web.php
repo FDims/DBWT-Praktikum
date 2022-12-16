@@ -16,6 +16,7 @@ return array(
     '/log'          => 'DemoController@log',
     '/anmeldung'    =>'AnmeldungController@login',
     '/anmeldung_verifizieren' =>'AnmeldungController@verifizieren',
+    '/abmelden'     =>'AnmeldungController@logout',
     // Erstes Beispiel:
     '/m4_7a_queryparameter' => 'ExamplesController@m4_7a_queryparameter',
     '/m4_7b_kategorie' => 'ExamplesController@m4_7b_kategorie',

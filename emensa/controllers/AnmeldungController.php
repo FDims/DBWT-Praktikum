@@ -39,6 +39,10 @@ class AnmeldungController
             }
         }
     }
+    public function logout(){
+        session_destroy();
+        header('location: /');
+    }
 
 
 }
