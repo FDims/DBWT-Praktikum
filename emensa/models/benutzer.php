@@ -23,7 +23,7 @@ function fehlerAnmeldung($email){
 }
 function Profil($email){
     $link = connectdb();
-    $query = " SELECT * FROM benutzer WHERE email = '$email'";
+    $query = " SELECT * FROM benutzer WHERE name = '$email'";
     $result = mysqli_query($link,$query);
     $list=mysqli_fetch_array($result,MYSQLI_BOTH);
     return $list;

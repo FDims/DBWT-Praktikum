@@ -6,7 +6,7 @@
  <title>Ihre Profil</title>
  <?php echo $this->yieldContent('cssextra'); ?>
 </head>
-body>
+<body>
 <header>
  <?php echo $this->yieldContent('header'); ?>
  <div class="head anmelden">
