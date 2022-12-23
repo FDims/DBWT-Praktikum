@@ -80,7 +80,7 @@
  </div>
 
  <h2 id="kontakt">Interesse geweckt? Wir informieren Sie!</h2>
- <form method="post" action="Werbeseite.php">
+ <form method="post" action="/">
  <input type="hidden" name="submitted" value="1">
 
  <div class="form">

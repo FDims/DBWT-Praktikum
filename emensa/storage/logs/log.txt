@@ -56,3 +56,5 @@
 [2022-12-23T01:00:25.050418+00:00] my_logger.INFO: ::1 Zugriff auf Hauptseite [] []
 [2022-12-23T01:00:25.250513+00:00] my_logger.INFO: ::1 Zugriff auf Hauptseite [] []
 [2022-12-23T01:01:20.633981+00:00] my_logger.INFO: ::1 Zugriff auf Hauptseite [] []
+[2022-12-23T11:29:50.804387+00:00] my_logger.INFO: ::1 Zugriff auf Hauptseite [] []
+[2022-12-23T11:30:08.515528+00:00] my_logger.INFO: ::1 Zugriff auf Hauptseite [] []
