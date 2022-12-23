@@ -41,6 +41,7 @@ class WerbeseiteController{
             }
         }
         insert_IP($ips,date("d.m.Y"));
+
         logger()->info($ips.' Zugriff auf Hauptseite');
         return view('werbeseite', [
             'gerichte' => $gerichte,

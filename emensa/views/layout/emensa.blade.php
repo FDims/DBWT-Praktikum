@@ -44,8 +44,12 @@
             <tr>
                     <?php
                     $bildname=$gericht['bildname']!=null?$gericht['bildname']:"00_image_missing.jpg";
+                    $dir = "./img/gerichte/".$bildname;
+                    if(!file_exists($dir)){
+                        $dir ="./img/gerichte/00_image_missing.jpg";
+                    }
                     ?>
-                <td class="menulist"><img src="./img/gerichte/{{$bildname}}" class="foodimg" alt="{{$gericht['bildname']}}"></td>
+                <td class="menulist"><img src={{$dir}} class="foodimg" alt="{{$gericht['bildname']}}"></td>
                 <td class="menulist">{{ $gericht['name']}}</td>
                 <td class="menulist">{{$gericht['preis_intern']}}</td>
                 <td class="menulist">{{$gericht['preis_extern']}}</td>

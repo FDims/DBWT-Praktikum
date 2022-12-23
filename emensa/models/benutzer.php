@@ -11,7 +11,7 @@ function letzteAnmeldung($email){
     $query = " UPDATE benutzer SET anzahlanmeldungen= anzahlanmeldungen+1, letzteanmeldungen= CURRENT_TIMESTAMP, anzahlfehler=0 WHERE email = '$email'";
     mysqli_query($link,$query);
     $link->commit();
-    mysqli_close();
+    //mysqli_close();
 }
 function fehlerAnmeldung($email){
     $link = connectdb();
@@ -19,7 +19,7 @@ function fehlerAnmeldung($email){
     $query = " UPDATE benutzer SET anzahlfehler= anzahlfehler+1,letztefehler= CURRENT_TIMESTAMP WHERE email = '$email'";
     mysqli_query($link,$query);
     $link->commit();
-    mysqli_close();
+    //mysqli_close();
 }
 function Profil($email){
     $link = connectdb();

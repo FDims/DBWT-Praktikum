@@ -289,7 +289,7 @@ function logger()
     $logger = new Logger('my_logger');
 // Now add some handlers
     $logger->pushHandler(new StreamHandler('../storage/logs/log.txt', Level::Info));
-    $logger->pushHandler(new FirePHPHandler());
+    //$logger->pushHandler(new FirePHPHandler());
 // You can now use your logger
     return $logger;
 }
