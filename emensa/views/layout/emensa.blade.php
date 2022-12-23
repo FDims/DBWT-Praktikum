@@ -63,15 +63,15 @@
     <h2 id="zzahlen">E-Mensa in Zahlen</h2>
     <div class="Zahl">
         <div class="zahlen">
-            <h4></h4>
+            <h4>{{$anzahl_besucher}}</h4>
             <h4>Besucher</h4>
         </div>
         <div class="zahlen">
-            <h4></h4>
+            <h4>{{$anzahl_anmelder}}</h4>
             <h4>Anmeldungen zum Newsletter</h4>
         </div>
         <div class="zahlen">
-            <h4></h4>
+            <h4>{{$anzahl_gericht}}</h4>
             <h4>Speisen</h4>
         </div>
     </div>

@@ -44,10 +44,11 @@ function db_gericht_tabelle(){
 }
 function gericht_Anzahl(){
     $link = connectdb();
-    $sql = "SELECT COUNT(id) FROM gericht";
+    $sql = "SELECT COUNT(*) FROM gericht";
     $result = mysqli_query($link, $sql);
-    $data = mysqli_fetch_all($result, MYSQLI_BOTH);
-    $AnzahlSpeisen= $data[0];
+    //$data = mysqli_fetch_all($result, MYSQLI_BOTH);
+    $anzahl=mysqli_fetch_array($result,MYSQLI_BOTH);
+    //$AnzahlSpeisen= $data[0];
     mysqli_close($link);
-    return $AnzahlSpeisen;
+    return $anzahl[0];
 }
