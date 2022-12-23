@@ -12,7 +12,7 @@
     @yield('header')
     <div class="head anmelden">
     @if(isset($_SESSION['anmeldung_erfolgreich']))
-        <h4>Hallo,{{$_SESSION['email']}}</h4>
+        <h4>Angemeldet als <a href="/profil">{{$_SESSION['email']}}</a></h4>
         <br>
         <a href="/abmelden">abmelden</a>
     @else

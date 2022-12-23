@@ -40,7 +40,7 @@
  <th class="menulist">Preis extern</th>
  </tr>
 
- <?php $__currentLoopData = $gerichte; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+  <?php $__currentLoopData = $gerichte; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $gericht): $loop = $this->incrementLoopIndices();  ?>
  <tr>
  <?php
