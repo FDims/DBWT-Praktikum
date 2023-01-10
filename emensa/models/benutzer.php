@@ -28,3 +28,19 @@ function Profil($email){
     $list=mysqli_fetch_array($result,MYSQLI_BOTH);
     return $list;
 }
+
+function loginTransaktion($email)
+{
+    $link = connectdb();
+    $query = " SELECT * FROM benutzer WHERE name = '$email'";
+    $result = mysqli_query($link, $query);
+    echo mysqli_error($link);
+    $list = mysqli_fetch_array($result);
+
+    $link->begin_transaction();
+        $link->query("UPDATE benutzer SET letzteanmeldungen= CURRENT_TIMESTAMP, anzahlfehler=0 WHERE email = '$email'")
+            echo mysqli_error($link);
+        $link->query("CALL anzahlanmeldungen(".$list['id'].");");
+
+        $link->commit();
+}
