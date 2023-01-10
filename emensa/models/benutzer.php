@@ -38,7 +38,7 @@ function loginTransaktion($email)
     $list = mysqli_fetch_array($result);
 
     $link->begin_transaction();
-        $link->query("UPDATE benutzer SET letzteanmeldungen= CURRENT_TIMESTAMP, anzahlfehler=0 WHERE email = '$email'")
+        $link->query("UPDATE benutzer SET letzteanmeldungen= CURRENT_TIMESTAMP, anzahlfehler=0 WHERE email = '$email'");
             echo mysqli_error($link);
         $link->query("CALL anzahlanmeldungen(".$list['id'].");");
 

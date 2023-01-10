@@ -37,7 +37,8 @@ class AnmeldungController
                 //mysqli_query($link,$sql1);
                 loginTransaktion($email);
                 logger()->info($_POST['email'].' Anmeldung');
-                header('Location: /');
+                if(isset($_SESSION['vonbewertung'])) {if($_SESSION['vonbewertung'])header('/bewertung');}
+                else header('Location: /');
             }else {
                 $_SESSION['anmeldung_erfolgreich'] = false;
                 $_SESSION['anmeldung_message'] = 'Anmeldung leider nicht erfolgreich, E-Mail oder Passwort falsch.';

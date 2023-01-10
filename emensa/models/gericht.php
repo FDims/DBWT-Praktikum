@@ -35,7 +35,7 @@ function db_gericht_preisintern(){
 }
 function db_gericht_tabelle(){
     $link = connectdb();
-    $sql = "SELECT name, preis_intern, preis_extern,bildname FROM gericht ORDER BY name ASC LIMIT 5";
+    $sql = "SELECT id,name, preis_intern, preis_extern,bildname FROM gericht ORDER BY name ASC LIMIT 5";
     $result = mysqli_query($link, $sql);
     $data = mysqli_fetch_all($result, MYSQLI_BOTH);
 
@@ -51,4 +51,13 @@ function gericht_Anzahl(){
     //$AnzahlSpeisen= $data[0];
     mysqli_close($link);
     return $anzahl[0];
+}
+function gerichtvonid($gid){
+    $link = connectdb();
+    $sql = "SELECT name,bildname FROM gericht WHERE id = $gid";
+    $result = mysqli_query($link, $sql);
+    $data = mysqli_fetch_assoc($result);
+    //$AnzahlSpeisen= $data[0];
+    mysqli_close($link);
+    return $data;
 }
