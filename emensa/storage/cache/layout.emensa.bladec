@@ -69,7 +69,12 @@
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </p>
  <br>
- <a href="/bewertungen">aktuelle Bewertungen ansehen</a>
+ <a href="/bewertungen">Aktuelle Bewertungen ansehen</a>
+ <?php if($_SESSION['anmeldung_erfolgreich']): ?>
+ <br><br>
+ <a href="/meinebewertungen">Meine Bewertungen ansehen</a>
+
+ <?php endif; ?>
  <br>
  <h2 id="zzahlen">E-Mensa in Zahlen</h2>
  <div class="Zahl">

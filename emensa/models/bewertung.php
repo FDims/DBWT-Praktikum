@@ -18,3 +18,12 @@ function letzte30bewertung()
     mysqli_close($link);
     return $data;
 }
+function meinebewertungen($id)
+{
+    $link = connectdb();
+    $query = "SELECT * FROM bewertung WHERE benutzer_id = $id ORDER BY bewertungszeitpunkt DESC";
+    $result = mysqli_query($link, $query);
+    $data = mysqli_fetch_all($result, MYSQLI_BOTH);
+    mysqli_close($link);
+    return $data;
+}

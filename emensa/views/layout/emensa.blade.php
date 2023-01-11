@@ -67,6 +67,11 @@
     </p>
     <br>
     <a href="/bewertungen">Aktuelle Bewertungen ansehen</a>
+    @if($_SESSION['anmeldung_erfolgreich'])
+    <br><br>
+    <a href="/meinebewertungen">Meine Bewertungen ansehen</a>
+
+    @endif
     <br>
     <h2 id="zzahlen">E-Mensa in Zahlen</h2>
     <div class="Zahl">

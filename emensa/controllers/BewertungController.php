@@ -45,4 +45,13 @@ class BewertungController
         //header('location: /bewertungen');
         return view('bewertungen',['tabelle' => $tabelle]);
     }
+    public function meinebewertungenindex(){
+        $id = $_SESSION['id'];
+        if(!$_SESSION['anmeldung_erfolgreich']){
+            header('Location: /anmeldung');
+            return view('anmeldung',[]);
+        }
+        $tabelle = meinebewertungen($id);
+        return view('meinebewertungen',['tabelle' => $tabelle]);
+    }
 }

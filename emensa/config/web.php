@@ -21,6 +21,7 @@ return array(
     '/bewertung'    => 'BewertungController@index',
     '/submitbewertung' =>'BewertungController@submitbewertung',
     '/bewertungen'    => 'BewertungController@bewertungenindex',
+    '/meinebewertungen'    => 'BewertungController@meinebewertungenindex',
 
     // Erstes Beispiel:
     '/m4_7a_queryparameter' => 'ExamplesController@m4_7a_queryparameter',
