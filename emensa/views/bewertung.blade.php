@@ -40,9 +40,11 @@
                 <option value="Sehr Schlecht">Sehr Schlecht</option>
             </select>
         </div>
-        <br>
+        <br><br>
         <button type="submit" name="submitbewertung" value="submitbewertung" id="submitbewertung">Bewertung abgeben</button>
     </form>
+    <br><br>
+    <a href="/">Zurück</a>
 </main>
 <footer>@yield('footer')</footer>
 </body>

@@ -32,13 +32,13 @@ function Profil($email){
 function loginTransaktion($email)
 {
     $link = connectdb();
-    $query = " SELECT * FROM benutzer WHERE name = '$email'";
+    $query = " SELECT * FROM benutzer WHERE email = '$email'";
     $result = mysqli_query($link, $query);
     echo mysqli_error($link);
     $list = mysqli_fetch_array($result);
 
     $link->begin_transaction();
-        $link->query("UPDATE benutzer SET letzteanmeldungen= CURRENT_TIMESTAMP, anzahlfehler=0 WHERE email = '$email'");
+        $link->query("UPDATE benutzer SET letzteanmeldungen= CURRENT_TIMESTAMP, anzahlfehler=0 WHERE name = '$email'");
             echo mysqli_error($link);
         $link->query("CALL anzahlanmeldungen(".$list['id'].");");
 
@@ -51,5 +51,12 @@ function isAdmin($name)
     $query = "SELECT admin FROM benutzer WHERE name = '$name'";
     $result = mysqli_query($link,$query);
     //$list = mysqli_fetch_array($result);
-    return $query;
+    return $result;
+}
+function idtoname($bid)
+{
+    $link = connectdb();
+    $query = "SELECT name FROM benutzer WHERE id = '$bid'";
+    $result = mysqli_query($link,$query);
+    return $result;
 }

@@ -53,11 +53,7 @@
                 <td class="menulist">{{ $gericht['name']}}</td>
                 <td class="menulist">{{$gericht['preis_intern']}}</td>
                 <td class="menulist">{{$gericht['preis_extern']}}</td>
-                @if(isset($_SESSION['anmeldung_erfolgreich']))
-                    <td><a href="/bewertung?gerichtid={{$gericht['id']}}">Bewerten</a></td>
-                @else
-                    <td><a href="/bewertung">Bewerten</a></td>
-                @endif
+                <td><a href="/bewertung?gerichtid={{$gericht['id']}}">Bewerten</a></td>
 
             </tr>
         @endforeach
@@ -69,6 +65,8 @@
             {{$list['code']}}:{{$list['name']}}
         @endforeach
     </p>
+    <br>
+    <a href="/bewertungen">aktuelle Bewertungen ansehen</a>
     <br>
     <h2 id="zzahlen">E-Mensa in Zahlen</h2>
     <div class="Zahl">

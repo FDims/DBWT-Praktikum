@@ -56,6 +56,7 @@ function gerichtvonid($gid){
     $link = connectdb();
     $sql = "SELECT * FROM gericht WHERE id = $gid";
     $result = mysqli_query($link, $sql);
+    if($result == null) return null;
     $data = mysqli_fetch_assoc($result);
     //$AnzahlSpeisen= $data[0];
     mysqli_close($link);
