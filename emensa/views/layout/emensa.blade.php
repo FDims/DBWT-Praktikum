@@ -66,7 +66,7 @@
         @endforeach
     </p>
     <br>
-    <a href="/bewertungen">aktuelle Bewertungen ansehen</a>
+    <a href="/bewertungen">Aktuelle Bewertungen ansehen</a>
     <br>
     <h2 id="zzahlen">E-Mensa in Zahlen</h2>
     <div class="Zahl">

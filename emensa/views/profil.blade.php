@@ -20,6 +20,7 @@
         <p>admin: {{$list['admin']}}</p>
         <p>letzte Anmeldung: {{$list['letzteanmeldungen']}}</p>
     </fieldset>
+    <a href="/">Zurück</a>
 </main>
 <footer>@yield('footer')</footer>
 </body>

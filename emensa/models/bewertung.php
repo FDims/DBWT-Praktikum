@@ -1,10 +1,10 @@
 <?php
-function addBewertung($benutzerid , $bemerkung , $gerichtid , $sterne, $gerichtname)
+function addBewertung($benutzerid , $bemerkung , $gerichtid , $sterne)
 {
     $link = connectdb();
 
-    $sql="INSERT INTO bewertung(gericht_id, gericht_name ,bemerkung, sternebewertung, bewertungszeitpunkt, benutzer_id, hervorgehoben) VALUES 
-          ('$gerichtid', '$gerichtname','$bemerkung', '$sterne', CURRENT_TIMESTAMP, '$benutzerid', false)";
+    $sql="INSERT INTO bewertung(gericht_id ,bemerkung, sternebewertung, bewertungszeitpunkt, benutzer_id, hervorgehoben) VALUES 
+          ('$gerichtid','$bemerkung', '$sterne', CURRENT_TIMESTAMP, '$benutzerid', false)";
 
     $link->query($sql);
     $link->close();

@@ -22,6 +22,8 @@
     <br>
     <input id="submit" type="submit" name="submit" value="submit">
 </form>
+    <br>
+    <a href="/">Zurück</a>
 </fieldset>
 <footer>
     @yield('footer')

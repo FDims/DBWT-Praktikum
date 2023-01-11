@@ -32,11 +32,10 @@ class BewertungController
         //$isAdmin = isAdmin($name);
         $text = $rd->query['bemerkung'];
         $gerichtid = $rd->query['gerichtid'];
-        $gericht = gerichtvonid($gerichtid);
-        $gerichtname = $gericht['name'];
+        //$gericht = gerichtvonid($gerichtid);
         $sterne = $rd->query['sterne'];
 
-        addBewertung($benutzerid , $text , $gerichtid ,$sterne, $gerichtname);
+        addBewertung($benutzerid , $text , $gerichtid ,$sterne);
 
         header('location: /');
     }
