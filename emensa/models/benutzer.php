@@ -44,3 +44,12 @@ function loginTransaktion($email)
 
         $link->commit();
 }
+
+function isAdmin($name)
+{
+    $link = connectdb();
+    $query = "SELECT admin FROM benutzer WHERE name = '$name'";
+    $result = mysqli_query($link,$query);
+    //$list = mysqli_fetch_array($result);
+    return $query;
+}

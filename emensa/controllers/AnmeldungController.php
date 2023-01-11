@@ -32,7 +32,7 @@ class AnmeldungController
                 $_SESSION['anmeldung_message'] = 'Anmeldung erfolgreich!';
                 $_SESSION['email'] = $user['name'];
                 //letzteAnmeldung($email);
-                //$sid = $user['id'];
+                $_SESSION['id'] = $user['id'];
                 //$sql1 = "CALL anzahlanmeldungen('$sid');";
                 //mysqli_query($link,$sql1);
                 loginTransaktion($email);

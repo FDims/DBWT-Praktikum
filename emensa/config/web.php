@@ -18,7 +18,9 @@ return array(
     '/anmeldung_verifizieren' =>'AnmeldungController@verifizieren',
     '/abmelden'     =>'AnmeldungController@logout',
     '/profil'       =>'ProfilController@profilList',
-    '/bewertung'    => 'BewertungController@bewertung',
+    '/bewertung'    => 'BewertungController@index',
+    '/submitbewertung' =>'BewertungController@submitbewertung',
+
     // Erstes Beispiel:
     '/m4_7a_queryparameter' => 'ExamplesController@m4_7a_queryparameter',
     '/m4_7b_kategorie' => 'ExamplesController@m4_7b_kategorie',

@@ -24,23 +24,24 @@
     }
     ?>
     <img src={{$dir}} class="foodimg" alt="{{$data['name']}}">
-    <form method="post" action="/">
-        <input type="hidden" name="submitted" value="1">
+    <form method="post" action ="/submitbewertung">
+        <input type="hidden" name="submittedbewertung" value="1">
+        <input type="hidden" name="gerichtid" value="{{$_GET['gerichtid']}}">
         <div class="form">
             <label for="bemerkung">Bemerkung:</label> <br>
-            <input type="text" name="bemerkung" id="bemerkung" required>
+            <input type="text" name="bemerkung" id="bemerkung" minlength=5 required>
         </div>
         <div class="form">
             <label for="sterne">Sterne-Bewertung:</label> <br>
             <select id="sterne" name="sterne">
-                <option value="sehrgut">Sehr Gut</option>
-                <option value="gut">Gut</option>
-                <option value="schlecht">Schlecht</option>
-                <option value="sehrschlecht">Sehr Schlecht</option>
+                <option value="Sehr Gut">Sehr Gut</option>
+                <option value="Gut">Gut</option>
+                <option value="Schlecht">Schlecht</option>
+                <option value="Sehr Schlecht">Sehr Schlecht</option>
             </select>
         </div>
         <br>
-        <button type="submit" name="submit" value="submit" id="submit">Bewertung abgeben</button>
+        <button type="submit" name="submitbewertung" value="submitbewertung" id="submitbewertung">Bewertung abgeben</button>
     </form>
 </main>
 <footer>@yield('footer')</footer>

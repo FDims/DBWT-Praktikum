@@ -54,7 +54,7 @@ function gericht_Anzahl(){
 }
 function gerichtvonid($gid){
     $link = connectdb();
-    $sql = "SELECT name,bildname FROM gericht WHERE id = $gid";
+    $sql = "SELECT * FROM gericht WHERE id = $gid";
     $result = mysqli_query($link, $sql);
     $data = mysqli_fetch_assoc($result);
     //$AnzahlSpeisen= $data[0];
