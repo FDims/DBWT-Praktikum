@@ -30,8 +30,9 @@
                 <td class="menulist">{{$gericht['name']}}</td>
                 <td class="menulist">{{$bewertung['sternebewertung']}}</td>
                 <td class="menulist">{{$bewertung['bemerkung']}}</td>
-                @if(@benutzer['admin'])
-                    <td class="menulist"><a href="" target="_self"></a></td>
+                @if($benutzer['admin'])
+                    <td class="menulist"><a href="" target="_self">????</a></td>
+                @endif
             </tr>
         @endforeach
         </tbody>

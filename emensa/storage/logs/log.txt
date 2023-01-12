@@ -286,3 +286,8 @@
 [2023-01-12T11:50:40.439095+00:00] my_logger.INFO: ::1 Zugriff auf Hauptseite [] []
 [2023-01-12T11:53:39.035402+00:00] my_logger.INFO: ::1 Zugriff auf Hauptseite [] []
 [2023-01-12T11:55:31.042817+00:00] my_logger.INFO: ::1 Zugriff auf Hauptseite [] []
+[2023-01-12T12:03:29.016037+00:00] my_logger.INFO: ::1 Zugriff auf Hauptseite [] []
+[2023-01-12T14:08:45.882161+00:00] my_logger.INFO: ::1 Zugriff auf Hauptseite [] []
+[2023-01-12T14:08:50.194446+00:00] my_logger.INFO: ::1 Zugriff auf Hauptseite [] []
+[2023-01-12T14:08:54.149747+00:00] my_logger.INFO: ::1 Zugriff auf Hauptseite [] []
+[2023-01-12T14:09:05.458610+00:00] my_logger.INFO: ::1 Zugriff auf Hauptseite [] []
