@@ -1,0 +1,43 @@
+<?php echo $this->runChild('layout.emensa'); ?>
+ <!DOCTYPE html>
+<html lang="de">
+<head>
+ <meta charset="UTF-8">
+ <title>Ihre E-Mensa</title>
+ <?php echo $this->yieldContent('cssextra'); ?>
+</head>
+<body>
+<header>
+ <?php echo $this->yieldContent('header'); ?>
+</header>
+<fieldset>
+ <legend>Meine Bewertungen</legend>
+ <table id="menu">
+ <tbody>
+ <tr>
+ <th class="menulist">Datum</th>
+ <th class="menulist">Gericht Name</th>
+ <th class="menulist">Sterne-Bewertung</th>
+ <th class="menulist">Bemerkung</th>
+ </tr>
+
+ <?php $__currentLoopData = $tabelle; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $bewertung): $loop = $this->incrementLoopIndices();  ?>
+ <?php
+ $gericht = gerichtvonid($bewertung['gericht_id'])
+ ?>
+ <tr>
+ <td class="menulist"><?php echo \htmlentities($bewertung['bewertungszeitpunkt']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td class="menulist"><?php echo \htmlentities($gericht['name']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td class="menulist"><?php echo \htmlentities($bewertung['sternebewertung']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td class="menulist"><?php echo \htmlentities($bewertung['bemerkung']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ </tr>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </tbody>
+ </table>
+ <a href="/">Zurück</a>
+</fieldset>
+<footer>
+ <?php echo $this->yieldContent('footer'); ?>
+</footer>
+</body>

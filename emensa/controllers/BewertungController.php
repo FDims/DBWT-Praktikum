@@ -42,8 +42,10 @@ class BewertungController
 
     public function bewertungenindex(){
         $tabelle = letzte30bewertung();
+        $benutzer = Profil($_SESSION['email']);
         //header('location: /bewertungen');
-        return view('bewertungen',['tabelle' => $tabelle]);
+        return view('bewertungen',['tabelle' => $tabelle,
+            'benutzer' => $benutzer]);
     }
     public function meinebewertungenindex(){
         $id = $_SESSION['id'];

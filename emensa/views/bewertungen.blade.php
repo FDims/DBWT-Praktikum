@@ -30,6 +30,8 @@
                 <td class="menulist">{{$gericht['name']}}</td>
                 <td class="menulist">{{$bewertung['sternebewertung']}}</td>
                 <td class="menulist">{{$bewertung['bemerkung']}}</td>
+                <td class="menulist"><a href=""></a></td>
+
             </tr>
         @endforeach
         </tbody>
