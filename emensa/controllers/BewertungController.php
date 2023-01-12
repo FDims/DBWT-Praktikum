@@ -28,6 +28,7 @@ class BewertungController
 
     public function submitbewertung(RequestData $rd){
 
+        $_SESSION['submitmsg'] = true;
         $benutzerid = $_SESSION['id'];
         //$isAdmin = isAdmin($name);
         $text = $rd->query['bemerkung'];
@@ -65,5 +66,13 @@ class BewertungController
         $link->query("UPDATE bewertung SET hervorgehoben=!hervorgehoben WHERE id ='$id'");
         $link->commit();
         header('location: /bewertungen');
+    }
+    public function loeschen(){
+        $id = $_GET['bid'];
+        $link = connectdb();
+        $link->begin_transaction();
+        $link->query("DELETE FROM bewertung WHERE id ='$id'");
+        $link->commit();
+        header('location: /meinebewertungen');
     }
 }

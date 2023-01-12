@@ -25,6 +25,11 @@
  var_dump($_SESSION);
  echo '</pre>';
  ?>
+ <?php if($_SESSION['submitmsg']): ?>
+ <h3>Bewertung abgeschickt. Danke</h3>
+ <?php $_SESSION['submitmsg'] = false ?>
+ <?php endif; ?>
+
  <img src="./img/emensa.jpg" alt="Mensa Photo" id="Mensaphoto">
  <h2 id="ankundigung">Bald gibt es Essen auch Online ;)</h2>
  <fieldset class="desc"><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod

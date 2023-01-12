@@ -23,6 +23,7 @@ return array(
     '/bewertungen'    => 'BewertungController@bewertungenindex',
     '/meinebewertungen'    => 'BewertungController@meinebewertungenindex',
     '/hervorheben'       =>  'BewertungController@hervorhebung',
+    '/bewertungloeschen'       =>  'BewertungController@loeschen',
 
     // Erstes Beispiel:
     '/m4_7a_queryparameter' => 'ExamplesController@m4_7a_queryparameter',
