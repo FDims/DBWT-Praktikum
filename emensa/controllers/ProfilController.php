@@ -3,8 +3,8 @@ require_once('../models/benutzer.php');
 class ProfilController
 {
     public function profilList(RequestData $rd){
-        $email = $_SESSION['email'];
-        $list = Profil($email);
+        $name = $_SESSION['email'];
+        $list = Profil($name);
         return view('profil',['list'=>$list]);
     }
 }

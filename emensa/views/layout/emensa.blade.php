@@ -20,7 +20,11 @@
 @endsection
 
 @section('content')
-
+    <?php
+    echo '<pre>';
+    var_dump($_SESSION);
+    echo '</pre>';
+        ?>
     <img src="./img/emensa.jpg" alt="Mensa Photo" id="Mensaphoto">
     <h2 id="ankundigung">Bald gibt es Essen auch Online ;)</h2>
     <fieldset class="desc"><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
@@ -60,6 +64,7 @@
         </tbody>
     </table>
     <br>
+    <h4>Allergencode</h4>
     <p>
         @foreach($allergen as $list)
             {{$list['code']}}:{{$list['name']}}
@@ -68,7 +73,7 @@
     <br>
     <a href="/bewertungen">Aktuelle Bewertungen ansehen</a>
     @if($_SESSION['anmeldung_erfolgreich'])
-    <br><br>
+    <br>
     <a href="/meinebewertungen">Meine Bewertungen ansehen</a>
 
     @endif

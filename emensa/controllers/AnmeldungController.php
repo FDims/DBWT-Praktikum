@@ -37,7 +37,14 @@ class AnmeldungController
                 //mysqli_query($link,$sql1);
                 loginTransaktion($email);
                 logger()->info($_POST['email'].' Anmeldung');
-                if($_SESSION['vonbewertung'])header('Location: /bewertung?gerichtid='.$_SESSION['gerichtid']);
+                if($_SESSION['vonbewertung']){
+                    $_SESSION['vonbewertung'] = false;
+                    header('Location: /bewertung?gerichtid='.$_SESSION['gerichtid']);
+                }
+                elseif($_SESSION['meinebewertungen']){
+                    $_SESSION['meinebewertungen'] = false;
+                    header('Location: /meinebewertungen');
+                }
                 else header('Location: /');
             }else {
                 $_SESSION['anmeldung_erfolgreich'] = false;

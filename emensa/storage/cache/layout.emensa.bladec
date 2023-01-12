@@ -20,7 +20,11 @@
 <?php $this->stopSection(); ?>
 
 <?php $this->startSection('content'); ?>
-
+ <?php
+ echo '<pre>';
+ var_dump($_SESSION);
+ echo '</pre>';
+ ?>
  <img src="./img/emensa.jpg" alt="Mensa Photo" id="Mensaphoto">
  <h2 id="ankundigung">Bald gibt es Essen auch Online ;)</h2>
  <fieldset class="desc"><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
@@ -61,6 +65,7 @@
  </tbody>
  </table>
  <br>
+ <h4>Allergencode</h4>
  <p>
  <?php $__currentLoopData = $allergen; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $list): $loop = $this->incrementLoopIndices();  ?>
@@ -71,7 +76,7 @@
  <br>
  <a href="/bewertungen">Aktuelle Bewertungen ansehen</a>
  <?php if($_SESSION['anmeldung_erfolgreich']): ?>
- <br><br>
+ <br>
  <a href="/meinebewertungen">Meine Bewertungen ansehen</a>
 
  <?php endif; ?>

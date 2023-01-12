@@ -1,7 +1,7 @@
 <?php
 require_once('../models/benutzer.php');
 require_once('../models/gericht.php');
-require_once('../models/kategorie.php');
+//require_once('../models/kategorie.php');
 require_once('../models/bewertung.php');
 
 
@@ -50,6 +50,7 @@ class BewertungController
     public function meinebewertungenindex(){
         $id = $_SESSION['id'];
         if(!$_SESSION['anmeldung_erfolgreich']){
+            $_SESSION['meinebewertungen'] = true;
             header('Location: /anmeldung');
             return view('anmeldung',[]);
         }
