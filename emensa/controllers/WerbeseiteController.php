@@ -4,6 +4,7 @@ require_once('../models/gericht.php');
 require_once('../models/allergen.php');
 require_once('../models/anmelder.php');
 require_once('../models/besucher.php');
+require_once('../models/bewertung.php');
 
 class WerbeseiteController{
     public function werbeseite(RequestData $rd)
@@ -41,6 +42,7 @@ class WerbeseiteController{
             }
         }
         insert_IP($ips,date("d.m.Y"));
+        $tabelle = letzte30bewertung();
 
         logger()->info($ips.' Zugriff auf Hauptseite');
         return view('werbeseite', [
@@ -49,6 +51,7 @@ class WerbeseiteController{
             'anzahl_gericht' => $anzahl_gericht,
             'anzahl_anmelder'=>$anzahl_anmelder,
             'anzahl_besucher' => $anzahl_besucher,
+            'tabelle' =>$tabelle,
         ]);
     }
 

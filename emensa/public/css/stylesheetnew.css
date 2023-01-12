@@ -171,6 +171,13 @@ footer{
     height: 400px;
     width: 400px;
 }
+.hervorgehoben{
+    border: solid 1px;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+    background-color: darksalmon;
+}
 
 
 

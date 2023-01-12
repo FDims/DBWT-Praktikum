@@ -71,6 +71,33 @@
         @endforeach
     </p>
     <br>
+    <h2>Meinungen Unserer Gäste</h2>
+    <table id="menu">
+        <tbody>
+        <tr>
+            <th class="menulist">Datum</th>
+            <th class="menulist">Gericht Name</th>
+            <th class="menulist">Sterne-Bewertung</th>
+            <th class="menulist">Bemerkung</th>
+        </tr>
+
+        @foreach($tabelle as $bewertung)
+                <?php
+                $gericht = gerichtvonid($bewertung['gericht_id'])
+                ?>
+            @if($bewertung['hervorgehoben'])
+                <tr>
+                 <td class="menulist">{{ $bewertung['bewertungszeitpunkt']}}</td>
+                    <td class="menulist">{{$gericht['name']}}</td>
+                    <td class="menulist">{{$bewertung['sternebewertung']}}</td>
+                    <td class="menulist">{{$bewertung['bemerkung']}}</td>
+                </tr>
+            @endif
+        @endforeach
+        </tbody>
+    </table>
+    <br>
+    <br>
     <a href="/bewertungen">Aktuelle Bewertungen ansehen</a>
     @if($_SESSION['anmeldung_erfolgreich'])
     <br>

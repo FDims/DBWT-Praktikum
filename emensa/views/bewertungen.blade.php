@@ -25,15 +25,27 @@
             <?php
                 $gericht = gerichtvonid($bewertung['gericht_id'])
                 ?>
+            @if($bewertung['hervorgehoben'])
             <tr>
-                <td class="menulist">{{ $bewertung['bewertungszeitpunkt']}}</td>
-                <td class="menulist">{{$gericht['name']}}</td>
-                <td class="menulist">{{$bewertung['sternebewertung']}}</td>
-                <td class="menulist">{{$bewertung['bemerkung']}}</td>
+                <td class="hervorgehoben">{{ $bewertung['bewertungszeitpunkt']}}</td>
+                <td class="hervorgehoben">{{$gericht['name']}}</td>
+                <td class="hervorgehoben">{{$bewertung['sternebewertung']}}</td>
+                <td class="hervorgehoben">{{$bewertung['bemerkung']}}</td>
                 @if($benutzer['admin'])
-                    <td class="menulist"><a href="" target="_self">????</a></td>
+                    <td class="hervorgehoben"><a href="/hervorheben?hervorhebenid={{$bewertung['id']}}" >Hervorhebung abwahlen</a></td>
                 @endif
             </tr>
+            @else
+                <tr>
+                    <td class="menulist">{{ $bewertung['bewertungszeitpunkt']}}</td>
+                    <td class="menulist">{{$gericht['name']}}</td>
+                    <td class="menulist">{{$bewertung['sternebewertung']}}</td>
+                    <td class="menulist">{{$bewertung['bemerkung']}}</td>
+                    @if($benutzer['admin'])
+                        <td class="menulist"><a href="/hervorheben?hervorhebenid={{$bewertung['id']}}" >hervorheben</a></td>
+                    @endif
+                </tr>
+            @endif
         @endforeach
         </tbody>
     </table>

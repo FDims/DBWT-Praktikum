@@ -57,4 +57,13 @@ class BewertungController
         $tabelle = meinebewertungen($id);
         return view('meinebewertungen',['tabelle' => $tabelle]);
     }
+
+    public function hervorhebung(RequestData $rd){
+        $id = $_GET['hervorhebenid'];
+        $link = connectdb();
+        $link->begin_transaction();
+        $link->query("UPDATE bewertung SET hervorgehoben=!hervorgehoben WHERE id ='$id'");
+        $link->commit();
+        header('location: /bewertungen');
+    }
 }
