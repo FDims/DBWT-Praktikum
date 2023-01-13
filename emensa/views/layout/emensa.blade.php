@@ -20,16 +20,12 @@
 @endsection
 
 @section('content')
-    <?php
-    echo '<pre>';
-    var_dump($_SESSION);
-    echo '</pre>';
-        ?>
-    @if($_SESSION['submitmsg'])
-        <h3>Bewertung abgeschickt. Danke</h3>
+    @if(isset($_SESSION['submitmsg']))
+        @if($_SESSION['submitmsg'])
+        <h3>Bewertung abgeschickt. Danke für Ihre Bewertung</h3>
             <?php $_SESSION['submitmsg'] = false ?>
     @endif
-
+    @endif
     <img src="./img/emensa.jpg" alt="Mensa Photo" id="Mensaphoto">
     <h2 id="ankundigung">Bald gibt es Essen auch Online ;)</h2>
     <fieldset class="desc"><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
@@ -104,10 +100,11 @@
     <br>
     <br>
     <a href="/bewertungen">Aktuelle Bewertungen ansehen</a>
-    @if($_SESSION['anmeldung_erfolgreich'])
-    <br>
-    <a href="/meinebewertungen">Meine Bewertungen ansehen</a>
-
+    @if(isset($_SESSION['anmeldung_erfolgreich']))
+        @if($_SESSION['anmeldung_erfolgreich'])
+        <br>
+        <a href="/meinebewertungen">Meine Bewertungen ansehen</a>
+    @endif
     @endif
     <br>
     <h2 id="zzahlen">E-Mensa in Zahlen</h2>
