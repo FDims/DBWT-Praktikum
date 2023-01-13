@@ -1,5 +1,5 @@
 body{
-    background-color: #C3F8FF;
+    background-color: #CCD6A6;
     font-family: 'Gemunu Libre', sans-serif;
     border: solid 1px   ;
 }
@@ -20,9 +20,10 @@ header{
     display: grid;
 }
 a{
-    color: #D61C4E;
+    color: #820000;
     font-size: 20px;
 }
+
 a:visited{
     text-decoration: none;
 }
@@ -56,7 +57,7 @@ ul>li{
     padding: 0 30px;
 }
 main{
-    background-color: #FFF6BF;
+    background-color: #DAE2B6;
     margin: 10px auto;
     max-width: 75%;
     padding: 0 5px;
@@ -176,7 +177,10 @@ footer{
     justify-content: center;
     align-content: center;
     margin: auto;
-    background-color: darksalmon;
+    background-color: #4E6C50;
+}
+fieldset{
+    background-color: #FFFBE9;
 }
 
 

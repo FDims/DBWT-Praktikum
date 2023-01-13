@@ -4,9 +4,9 @@
 @endsection
 @section('header')
     <div class="head">
-    <h1>
+        <a href="/"><h1>
         E-Mensa
-    </h1>
+    </h1></a>
     </div>
     <div class="head">
     <ul id="headlist">

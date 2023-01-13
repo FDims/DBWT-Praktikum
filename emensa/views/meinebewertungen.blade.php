@@ -30,7 +30,7 @@
                 <td class="menulist">{{$gericht['name']}}</td>
                 <td class="menulist">{{$bewertung['sternebewertung']}}</td>
                 <td class="menulist">{{$bewertung['bemerkung']}}</td>
-                <td class="menulist"><a href="/bewertungloeschen?bid={{$bewertung['id']}}" >Bewertung loeschen</a></td>
+                <td class="menulist"><a href="/bewertungloeschen?bid={{$bewertung['id']}}" onclick="return confirm('Are you sure you want to delete this item?');">Bewertung loeschen</a></td>
             </tr>
         @endforeach
         </tbody>
